@@ -10,3 +10,4 @@ bots/mybot/
 bots/minimax/minimax.py
 experiment.py
 experiment.pdf
+bots/alphabeta/alphabeta.py
