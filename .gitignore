@@ -7,3 +7,5 @@ __pycache__/
 .settings
 *.iml
 bots/mybot/
+experiment.py
+experiment.pdf
