@@ -28,7 +28,7 @@ class Bot:
 
     # Probability of moving with non-trump cards
     __non_trump_move = 0.0
-    def __init__(self, non_trump_move=0.1):
+    def __init__(self, non_trump_move=0.5):
         self.__non_trump_move = non_trump_move
 
     def get_move(self, state):
@@ -41,13 +41,11 @@ class Bot:
         #IMPLEMENT: Make a random move (but exclude the best non-trump move from above)
 
         moves = state.moves()
-        chosenMove = best_non_trump_card(state)
-        if len(moves) <= 1:
-            return moves[0]
-        while chosenMove == best_non_trump_card(state):
-            chosenIndex = random.randint(0,len(moves)-1)
-            chosenMove = moves[chosenIndex]
-        return chosenMove
+        chosen_move = best_non_trump_card(state)
+
+        while chosen_move == best_non_trump_card(state) and len(moves) > 1:
+            chosen_move = random.choice(moves)
+        return chosen_move
 
 
 def empty(n):

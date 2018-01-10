@@ -7,5 +7,6 @@ __pycache__/
 .settings
 *.iml
 bots/mybot/
+bots/minimax/minimax.py
 experiment.py
 experiment.pdf
