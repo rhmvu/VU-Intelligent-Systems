@@ -1,7 +1,7 @@
-from kb import KB, Boolean, Integer
+import kb, sys
+from kb import KB, Boolean, Integer, Constant
 
-# Initialise all variables that you need for you strategies and game knowledge.
-# Add those variables here.. The following list is complete for the Play Jack strategy.
+# Define our symbols
 J0 = Boolean('j0')
 J1 = Boolean('j1')
 J2 = Boolean('j2')
@@ -125,7 +125,6 @@ K19 = Boolean('k19')
 # PK18 = Boolean('pk18')
 # PK19 = Boolean('pk19')
 
-
 PC0 = Boolean('pc0')
 PC1 = Boolean('pc1')
 PC2 = Boolean('pc2')
@@ -147,92 +146,93 @@ PC17 = Boolean('pc17')
 PC18 = Boolean('pc18')
 PC19 = Boolean('pc19')
 
-def general_information(kb):
-    # GENERAL INFORMATION ABOUT THE CARDS
-    # This adds information which cards are Jacks
-    kb.add_clause(J4)
-    kb.add_clause(J9)
-    kb.add_clause(J14)
-    kb.add_clause(J19)
+# Create a new knowledge base
+kb = KB()
 
-    kb.add_clause(Q3)
-    kb.add_clause(Q8)
-    kb.add_clause(Q13)
-    kb.add_clause(Q18)
+# Add the info which cards are Jacks, Queens or Kings
+kb.add_clause(J4)
+kb.add_clause(J9)
+kb.add_clause(J14)
+kb.add_clause(J19)
 
-    kb.add_clause(K2)
-    kb.add_clause(K7)
-    kb.add_clause(K12)
-    kb.add_clause(K17)
-    # Add here whatever is needed for your strategy.
+kb.add_clause(Q3)
+kb.add_clause(Q8)
+kb.add_clause(Q13)
+kb.add_clause(Q18)
 
-def strategy_knowledge(kb):
-    # DEFINITION OF THE STRATEGY
-    # Add clauses (This list is sufficient for this strategy)
-    # PJ is the strategy to play jacks first, so all we need to model is all x PJ(x) <-> J(x),
-    # In other words that the PJ strategy should play a card when it is a jack
-    # Add the info which cards are Jacks, Queens or Kings
+kb.add_clause(K2)
+kb.add_clause(K7)
+kb.add_clause(K12)
+kb.add_clause(K17)
 
+#####################################################
+# Add clauses
+#####################################################
+kb.add_clause(~PC2, J2, Q2, K2)
+kb.add_clause(~J2, PC2)
+kb.add_clause(~Q2, PC2)
+kb.add_clause(~K2, PC2)
 
-    #####################################################
-    # Add clauses
-    #####################################################
-    kb.add_clause(~PC2, J2, Q2, K2)
-    kb.add_clause(~J2, PC2)
-    kb.add_clause(~Q2, PC2)
-    kb.add_clause(~K2, PC2)
+kb.add_clause(~PC3, J3, Q3, K3)
+kb.add_clause(~J3, PC3)
+kb.add_clause(~Q3, PC3)
+kb.add_clause(~K3, PC3)
 
-    kb.add_clause(~PC3, J3, Q3, K3)
-    kb.add_clause(~J3, PC3)
-    kb.add_clause(~Q3, PC3)
-    kb.add_clause(~K3, PC3)
+kb.add_clause(~PC4, J4, Q4, K4)
+kb.add_clause(~J4, PC4)
+kb.add_clause(~Q4, PC4)
+kb.add_clause(~K4, PC4)
 
-    kb.add_clause(~PC4, J4, Q4, K4)
-    kb.add_clause(~J4, PC4)
-    kb.add_clause(~Q4, PC4)
-    kb.add_clause(~K4, PC4)
+kb.add_clause(~PC7, J7, Q7, K7)
+kb.add_clause(~J7, PC7)
+kb.add_clause(~Q7, PC7)
+kb.add_clause(~K7, PC7)
 
-    kb.add_clause(~PC7, J7, Q7, K7)
-    kb.add_clause(~J7, PC7)
-    kb.add_clause(~Q7, PC7)
-    kb.add_clause(~K7, PC7)
+kb.add_clause(~PC8, J8, Q8, K8)
+kb.add_clause(~J8, PC8)
+kb.add_clause(~Q8, PC8)
+kb.add_clause(~K8, PC8)
 
-    kb.add_clause(~PC8, J8, Q8, K8)
-    kb.add_clause(~J8, PC8)
-    kb.add_clause(~Q8, PC8)
-    kb.add_clause(~K8, PC8)
+kb.add_clause(~PC9, J9, Q9, K9)
+kb.add_clause(~J9, PC9)
+kb.add_clause(~Q9, PC9)
+kb.add_clause(~K9, PC9)
 
-    kb.add_clause(~PC9, J9, Q9, K9)
-    kb.add_clause(~J9, PC9)
-    kb.add_clause(~Q9, PC9)
-    kb.add_clause(~K9, PC9)
+kb.add_clause(~PC12, J12, Q12, K12)
+kb.add_clause(~J12, PC12)
+kb.add_clause(~Q12, PC12)
+kb.add_clause(~K12, PC12)
 
-    kb.add_clause(~PC12, J12, Q12, K12)
-    kb.add_clause(~J12, PC12)
-    kb.add_clause(~Q12, PC12)
-    kb.add_clause(~K12, PC12)
+kb.add_clause(~PC13, J13, Q13, K13)
+kb.add_clause(~J13, PC13)
+kb.add_clause(~Q13, PC13)
+kb.add_clause(~K13, PC13)
 
-    kb.add_clause(~PC13, J13, Q13, K13)
-    kb.add_clause(~J13, PC13)
-    kb.add_clause(~Q13, PC13)
-    kb.add_clause(~K13, PC13)
+kb.add_clause(~PC14, J14, Q14, K14)
+kb.add_clause(~J14, PC14)
+kb.add_clause(~Q14, PC14)
+kb.add_clause(~K14, PC14)
 
-    kb.add_clause(~PC14, J14, Q14, K14)
-    kb.add_clause(~J14, PC14)
-    kb.add_clause(~Q14, PC14)
-    kb.add_clause(~K14, PC14)
+kb.add_clause(~PC17, J17, Q17, K17)
+kb.add_clause(~J17, PC17)
+kb.add_clause(~Q17, PC17)
+kb.add_clause(~K17, PC17)
 
-    kb.add_clause(~PC17, J17, Q17, K17)
-    kb.add_clause(~J17, PC17)
-    kb.add_clause(~Q17, PC17)
-    kb.add_clause(~K17, PC17)
+kb.add_clause(~PC18, J18, Q18, K18)
+kb.add_clause(~J18, PC18)
+kb.add_clause(~Q18, PC18)
+kb.add_clause(~K18, PC18)
 
-    kb.add_clause(~PC18, J18, Q18, K18)
-    kb.add_clause(~J18, PC18)
-    kb.add_clause(~Q18, PC18)
-    kb.add_clause(~K18, PC18)
+kb.add_clause(~PC19, J19, Q19, K19)
+kb.add_clause(~J19, PC19)
+kb.add_clause(~Q19, PC19)
+kb.add_clause(~K19, PC19)
 
-    kb.add_clause(~PC19, J19, Q19, K19)
-    kb.add_clause(~J19, PC19)
-    kb.add_clause(~Q19, PC19)
-    kb.add_clause(~K19, PC19)
+kb.add_clause(~PC4)
+
+# Print all models of the knowledge base
+for model in kb.models():
+    print model
+
+# Print out whether the KB is satisfiable (if there are no models, it is not satisfiable)
+print kb.satisfiable()

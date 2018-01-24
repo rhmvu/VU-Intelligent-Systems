@@ -30,7 +30,7 @@ class Bot:
                 # Plays the first move that makes the kb inconsistent. We do not take
                 # into account that there might be other valid moves according to the strategy.
                 # Uncomment the next line if you want to see that something happens.
-                # print "Strategy Applied"
+                #print "Strategy Applied"
                 return move
 
         # If no move that is entailed by the kb is found, play random move
@@ -60,7 +60,7 @@ class Bot:
         # Here we use "pj" to indicate that the card with index "index" should be played with the
         # PlayJack heuristics that was defined in class. Initialise a different variable if 
         # you want to apply a different strategy (that you will have to define in load.py)
-        variable_string = "pj" + str(index)
+        variable_string = "pc" + str(index)
         strategy_variable = Boolean(variable_string)
 
         # Add the relevant clause to the loaded knowledge base
