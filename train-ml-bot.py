@@ -19,7 +19,7 @@ from bots.rand import rand
 from bots.ml.ml import features
 
 # How many games to play
-GAMES = 10000
+GAMES = 1000000
 
 # Which phase the game starts in
 PHASE = 1
