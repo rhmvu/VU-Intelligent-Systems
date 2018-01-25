@@ -12,24 +12,26 @@ import sys
 import sklearn
 import sklearn.linear_model
 from sklearn.externals import joblib
+#from sklearn.externals.joblib import parallel
 
 from bots.rand import rand
-# from bots.rdeep import rdeep
+from bots.rdeep import rdeep
 
 from bots.ml.ml import features
 
 # How many games to play
-GAMES = 1000000
+GAMES = 10000
 
 # Which phase the game starts in
 PHASE = 1
 
 # The player we'll observe
-player = rand.Bot()
-# player = rdeep.Bot()
+#player = rand.Bot()
+player = rdeep.Bot()
 
 data = []
 target = []
+
 
 for g in range(GAMES):
 
