@@ -1,4 +1,7 @@
 \documentclass[a4paper,12pt]{article}
+
+\usepackage{listings}
+
 \title{The benefits of an extended feature space in a machine learning bot for the game Schnapsen}
 \date{January 25, 2018}
 \author{Lucas Faijdherbe, Daan Schrage and Ruben van der Ham\\\\
@@ -63,4 +66,56 @@ For this paper, we will use machine learning bots with different set features to
 \section{Findings}
 
 \section{Conclusion}
+
+\appendix
+\section{Worksheet I}
+\begin{enumerate}
+\item The \textit{rdeep} bot performs best, winning 20 out of 30 games. \\
+Output:
+\begin{lstlisting}[language=bash]
+Results:
+bot <bots.rand.rand.Bot instance at 0x101a70fc8>: 7 wins
+bot <bots.bully.bully.Bot instance at 0x101a71098>: 3 wins
+bot <bots.rdeep.rdeep.Bot instance at 0x101a71170>: 20 wins
+\end{lstlisting}
+
+\item The bully bot operates as follows:
+\begin{itemize}
+\item If it has a trump card, it will play that.
+\item If it does not have a trump card, it will play a card from the same suit
+\item If it cannot do either of those things, it will choose the highest ranking card of any suit.
+\end{itemize}
+\item Using this strategy means that you will try to get as many points as possible each move. However, this might also mean that early in the game, the bot will play valuable cards in order to get a high point ratio, but later in the game it has no good cards left. 
+\item Have the bots complete a large number of tournaments (preferably n > 30), see if the rdeep bot still outperforms the rand bot, and how big the difference in wins is. If there is a significant difference, we can assume that rdeep is better than rand.
+\item Bot:
+\item The heat map:
+- Insert pdf here - This heatmap means:
+\item The added line:
+\begin{lstlisting}[language=bash]
+value, move = self.value(next_state, depth + 1)
+\end{lstlisting}
+Output:
+\begin{lstlisting}[language=bash]
+python tournament.py -p rand,minimax -s 2 -r 10
+Playing 10 games:
+Played 1 out of 10 games (10\%): [0, 1] 
+Played 2 out of 10 games (20\%): [0, 2] 
+Played 3 out of 10 games (30\%): [0, 3] 
+Played 4 out of 10 games (40\%): [0, 4] 
+Played 5 out of 10 games (50\%): [1, 4] 
+Played 6 out of 10 games (60\%): [2, 4] 
+Played 7 out of 10 games (70\%): [2, 5] 
+Played 8 out of 10 games (80\%): [3, 5] 
+Played 9 out of 10 games (90\%): [4, 5] 
+Played 10 out of 10 games (100\%): [4, 6] 
+Results:
+bot <bots.rand.rand.Bot instance at 0x102a70f80>: 4 wins
+bot <bots.minimax.minimax.Bot instance at 0x102a731b8>: 6 wins
+\end{lstlisting}
+\item
+\item The heuristic is a value between -1.0 and 1.0, derived from the point ratio of the current player. If the player has a 1.0 value, the player has a definite win. If the value is -1.0, the opponent has a definite win.
+\end{enumerate}
+\section{Worksheet II}
+\section{Worksheet III}
+
 \end{document}
