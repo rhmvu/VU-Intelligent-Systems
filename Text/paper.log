@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.6)  25 JAN 2018 21:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.6)  26 JAN 2018 11:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -46,31 +46,68 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./paper.toc)
+(./paper.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 3.
+)
 \tf@toc=\write3
 \openout3 = `paper.toc'.
 
- [1] [2
+ [1]
+Underfull \hbox (badness 10000) in paragraph at lines 26--32
 
-] (./paper.aux) ) 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--32
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--40
+
+ []
+
+
+Overfull \hbox (7.94179pt too wide) in paragraph at lines 33--40
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 33--40
+
+ []
+
+[2
+
+]
+Overfull \hbox (0.59317pt too wide) in paragraph at lines 47--48
+[]\OT1/cmr/m/n/12 This bot only works in a perfect-information game
+ []
+
+[3] [4] (./paper.aux) ) 
 Here is how much of TeX's memory you used:
- 222 strings out of 492995
- 2405 string characters out of 6132705
- 55074 words of memory out of 5000000
- 3853 multiletter control sequences out of 15000+600000
- 6671 words of font info for 24 fonts, out of 8000000 for 9000
+ 240 strings out of 492995
+ 2605 string characters out of 6132705
+ 58074 words of memory out of 5000000
+ 3865 multiletter control sequences out of 15000+600000
+ 9416 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 22i,7n,19p,181b,236s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr17.pfb>
-Output written on paper.pdf (3 pages, 62040 bytes).
+ 22i,7n,19p,741b,236s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr17.pfb>
+Output written on paper.pdf (5 pages, 77552 bytes).
 PDF statistics:
- 34 PDF objects out of 1000 (max. 8388607)
- 23 compressed objects within 1 object stream
+ 40 PDF objects out of 1000 (max. 8388607)
+ 27 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

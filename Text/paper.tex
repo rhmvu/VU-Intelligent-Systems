@@ -1,7 +1,7 @@
 \documentclass[a4paper,12pt]{article}
-\title{An emperical study: How procastination fucks up people's lives}
+\title{The benefits of an extended feature space in a machine learning bot for the game Schnapsen}
 \date{January 25, 2018}
-\author{Lucas Fajidherbe, Daan Schrage and Ruben van der Ham\\\\
+\author{Lucas Faijdherbe, Daan Schrage and Ruben van der Ham\\\\
 	\small Intelligent Systems\\
 	\small Vrije Universiteit Amsterdam}
 
@@ -17,10 +17,50 @@ Abstract paragraph with abstract shit about abstract things
 \end{abstract}
 
 \section{Introduction}
+Introduction
 
-paperrrr
+\section{Background Information}
+\subsection{Schnapsen}
+Schnapsen is an Austrian card game, played with 20 cards; Only the Jacks, Queens, Kings, 10s and Aces are in the deck. The goal of the game is to win tricks, and to be the first player to score 66 points. Each game has a trump suit, which is determined randomly. A card from the trump suit lets you automatically win the trick, provided that there is no higher trump card in the game.
 
-\section{Technical stuff}
-XYZ 1010101010111
+The game has a multi-agent (we have an opponent), deterministic (the environment is determined by the current state and executed action), static (the environment does not change when an agent is choosing an action) and discrete (the game is turn-based) environment. The game consists of two phases: In phase one, when there are still cards in stock, we have an imperfect information game. In phase two, when the stock is depleted, we have a perfect information game, since we know exactly what the cards of our opponent are. The point count in the game is as follows: \\ \\
+\noindent
+\begin{tabular}{l l l l l}
+\textbf{J} & \textbf{Q} & \textbf{K} & \textbf{10} & \textbf{A} \\
+2 & 3 & 4 & 10 & 11 \\
+\end{tabular} \\
 
+\noindent
+A lot of points can also be won by marriages. If the player is leading the trick and has a king or a queen of the same suit, it can play one card, and show the other, so the opponent knows that there is a marriage.\\ \\
+\noindent
+\begin{tabular} {c c}
+\textbf{Normal marriage (non-trump suit)} & \textbf{Royal marriage (trump suit)} \\
+20 & 40 \\
+\end{tabular}\\
+
+\noindent
+The game starts in phase one, an imperfect-information game. Each agent has 5 cards. Player 1 plays a card, thereby determining the suit that has to be played. To win the trick, player 2 has to play a higher-ranking card from the same suit, or a trump card. Player 2 does not have to follow suit in phase 1, but he/she will lose the trick in that case. The winner of the trick now becomes player one and gets the cards, with the amount of points the two cards represent. This goes on until the stock is depleted; then we enter phase 2, a perfect-information game. Player 2 now has to follow suit. If it cannot do that, the player has to trump, and otherwise play any card. If a player reaches 66 points or more, the game is over.
+
+\subsection{Intelligent Systems Schnapsen Framework}
+The course provided us with a framework. We have an api, which is the skeleton for the Schnapsen game, and we have two scripts: one where we can let bots play against each other in a single game where we can see all the moves, and a script where we can play a tournament - with a specifiable number of the number of games to be played - and see how many games each bot has won. There are already multiple bots already present in the framework to play against:
+\begin{description}
+\item [Minimax / Alphabeta:] This bot only works in a perfect-information game (phase 2 of Schnapsen). It recursively looks through all the states, and decides what the best move to play will be, provided that the opponent plays optimally, and will try to minimize the outcome of the game for the player.
+\item [Bully:] Plays by a defined set of rules. If it has a trump card, it will play that. Otherwise, it will play a card of the same suit player 1 played. If it cannot do either of those things, it will play the highest ranking card of any suit.
+\item [Rand:] Chooses a random move out of all of the legal moves, and plays that.
+\item [Rdeep:] Functions quite like a Monte-Carlo sampling bot. It looks through multiple states, and averages the heuristics of a state, thereby ranking the moves. It then picks one of the highest ranking moves to play.
+\item [KBbot:] Logical reasoning bot. The strategy can be defined in propositional logic. The current strategy of the bot is to always play cheap cards (i.e kings, queens, jacks) first.
+\end{description}
+
+\subsection{Machine Learning Bots}
+For this paper, we will use machine learning bots with different set features to determine what the best features are.
+
+\section{Research Question}
+
+\section{Experimental setup}
+
+\section{Results}
+
+\section{Findings}
+
+\section{Conclusion}
 \end{document}
