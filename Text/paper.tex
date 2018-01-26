@@ -1,6 +1,7 @@
 \documentclass[a4paper,12pt]{article}
 
 \usepackage{listings}
+\usepackage{enumerate}
 
 \title{The benefits of an extended feature space in a machine learning bot for the game Schnapsen}
 \date{January 25, 2018}
@@ -70,6 +71,7 @@ For this paper, we will use machine learning bots with different set features to
 \appendix
 \section{Worksheet I}
 \begin{enumerate}
+
 \item The \textit{rdeep} bot performs best, winning 20 out of 30 games. \\
 Output:
 \begin{lstlisting}[language=bash]
@@ -85,11 +87,16 @@ bot <bots.rdeep.rdeep.Bot instance at 0x101a71170>: 20 wins
 \item If it does not have a trump card, it will play a card from the same suit
 \item If it cannot do either of those things, it will choose the highest ranking card of any suit.
 \end{itemize}
+
 \item Using this strategy means that you will try to get as many points as possible each move. However, this might also mean that early in the game, the bot will play valuable cards in order to get a high point ratio, but later in the game it has no good cards left. 
+
 \item Have the bots complete a large number of tournaments (preferably n > 30), see if the rdeep bot still outperforms the rand bot, and how big the difference in wins is. If there is a significant difference, we can assume that rdeep is better than rand.
+
 \item Bot:
+
 \item The heat map:
 - Insert pdf here - This heatmap means:
+
 \item The added line:
 \begin{lstlisting}[language=bash]
 value, move = self.value(next_state, depth + 1)
@@ -98,24 +105,179 @@ Output:
 \begin{lstlisting}[language=bash]
 python tournament.py -p rand,minimax -s 2 -r 10
 Playing 10 games:
-Played 1 out of 10 games (10\%): [0, 1] 
-Played 2 out of 10 games (20\%): [0, 2] 
-Played 3 out of 10 games (30\%): [0, 3] 
-Played 4 out of 10 games (40\%): [0, 4] 
-Played 5 out of 10 games (50\%): [1, 4] 
-Played 6 out of 10 games (60\%): [2, 4] 
-Played 7 out of 10 games (70\%): [2, 5] 
-Played 8 out of 10 games (80\%): [3, 5] 
-Played 9 out of 10 games (90\%): [4, 5] 
-Played 10 out of 10 games (100\%): [4, 6] 
+Played 1 out of 10 games (10%): [0, 1] 
+Played 2 out of 10 games (20%): [0, 2] 
+Played 3 out of 10 games (30%): [0, 3] 
+Played 4 out of 10 games (40%): [0, 4] 
+Played 5 out of 10 games (50%): [1, 4] 
+Played 6 out of 10 games (60%): [2, 4] 
+Played 7 out of 10 games (70%): [2, 5] 
+Played 8 out of 10 games (80%): [3, 5] 
+Played 9 out of 10 games (90%): [4, 5] 
+Played 10 out of 10 games (100%): [4, 6] 
 Results:
 bot <bots.rand.rand.Bot instance at 0x102a70f80>: 4 wins
 bot <bots.minimax.minimax.Bot instance at 0x102a731b8>: 6 wins
 \end{lstlisting}
+
 \item
+
 \item The heuristic is a value between -1.0 and 1.0, derived from the point ratio of the current player. If the player has a 1.0 value, the player has a definite win. If the value is -1.0, the opponent has a definite win.
 \end{enumerate}
 \section{Worksheet II}
-\section{Worksheet III}
+\begin{enumerate}
+\item The added clause that makes the knowledge base unsatisfiable:
+\begin{lstlisting}[language=bash]
+kb.add_clause(~B, ~C)
+\end{lstlisting}
 
+\item The three clauses converted to CNF:
+\begin{itemize}
+\item A V B
+\item -B V A
+\item -A V C
+\item -A V D
+\end{itemize}
+The code that creates the variables and the knowledge base:
+\begin{lstlisting}[language=bash]
+# Define our symbols
+A = Boolean('A')
+B = Boolean('B')
+C = Boolean('C')
+D = Boolean('D')
+
+# Create a new knowledge base
+kb = KB()
+
+# Add clauses
+kb.add_clause(A, B)
+kb.add_clause(~B, A)
+kb.add_clause(~A, C)
+kb.add_clause(~A, D)
+\end{lstlisting}
+Because the knowledge base entails A \& C \& D, all three have to be true. For now, the model has two solutions:
+\begin{lstlisting}[language=bash]
+{A: True, C: True, B: False, D: True}
+{A: True, C: True, B: True, D: True}
+\end{lstlisting}
+B can be whatever it wants, but A, B and D have to be true.
+
+\item Three constraints have to be met:
+\begin{enumerate}[I]
+\item $X = Y$
+\item $X + Y > 2$
+\item $X + Y < 5$
+\end{enumerate}
+The model is satisfiable, as long as: 
+$1 < x < 2.5$ and $1 < y < 2.5$
+
+\item We now have three models:
+\begin{lstlisting}[language=bash]
+(a) [x = y] = True, [x + y > 2] = True, [x + y < 5] = True
+(b) [x = y] = True, [x + y > 2] = True, [x + y < 5] = False
+(c) [x = y] = True, [x + y > 2] = False, [x + y < 5] = True
+\end{lstlisting}
+
+The three constraints per model: \\\\
+(a) This model already has three constraints. \\
+(b) Only the last clause has to change, namely to $[x + y >=5] $= True\\
+(c) Only the second clause has to change, namely to$ [x + y <= 2]$ = True.\\
+
+Now we end up with this:
+\begin{lstlisting}[language=bash]
+(a) [x = y] = True, [x + y > 2] = True, [x + y < 5] = True
+(b) [x = y] = True, [x + y > 2] = True, [x + y >= 5] = True
+(c) [x = y] = True, [x + y <= 2] = True, [x + y < 5] = True
+\end{lstlisting}
+
+\item What we want, is to find points on the line $x = y$, where the points either lie between $x + y > -5$ and $x + y < -2$, or where the points lie between $x + y > 2$ and $x + y < 5$.
+
+The clauses we need to add are:
+\begin{itemize}
+\item $x == y$
+\item $x + y > 2 V  x + y < -2$
+\item $x + y > -5 V  x + y < 5$
+\item $x + y > - 5 V  x + y > 2$
+\item $x + y < -2 V  x + y < 5$
+\end{itemize}
+
+The code:
+\begin{lstlisting}[language=bash]
+# Define our integer symbols
+x = Integer('x')
+y = Integer('y')
+
+q = x == y
+a = x + y > 2
+b = x + y < 5
+c = x + y < -2
+d = x + y > -5
+
+kb = KB()
+
+kb.add_clause(q)
+kb.add_clause(a, c)
+kb.add_clause(a, d)
+kb.add_clause(b, c)
+kb.add_clause(b, d)
+\end{lstlisting}
+
+\item 
+
+\end{enumerate}
+\section{Worksheet III}
+\begin{enumerate}
+\item The added code:
+\begin{lstlisting}[language=bash]
+value = self.heuristic(next_state)
+
+p1_points = state.get_points(1)
+
+p2_points = state.get_points(2)
+
+p1_pending_points = state.get_pending_points(1)
+
+p2_pending_points = state.get_pending_points(2)
+
+trump_suit = state.get_trump_suit()
+
+phase = state.get_phase()
+
+stock_size = state.get_stock_size()
+
+leader = state.leader()
+
+whose_turn = state.whose_turn()
+
+opponents_played_card = state.get_opponents_played_card()
+\end{lstlisting}
+The result of the played tournament against rand and bully:
+\begin{lstlisting}[language=bash]
+bot <bots.ml.ml.Bot instance at 0x102271290>: 16 wins
+bot <bots.rand.rand.Bot instance at 0x1022711b8>: 4 wins
+bot <bots.bully.bully.Bot instance at 0x1059b71b8>: 10 wins
+\end{lstlisting}
+
+\item We let the mlbot learn by playing against rdeep. But since the games took way longer than the games of mlbot vs rand, we set the number of games to 1000 (Which still took quite some time).
+
+We get a lower output now:
+\begin{lstlisting}[language=bash]
+bot <bots.ml.ml.Bot instance at 0x102a73248>: 15 wins
+bot <bots.rand.rand.Bot instance at 0x102a73170>: 7 wins
+bot <bots.bully.bully.Bot instance at 0x10599df80>: 8 wins
+\end{lstlisting}
+
+ML now wins 15 times, where it won 16 times on the first tournament. This might have to do with the training set being smaller, and it was trained against rdeep, which does not compete in the tournament. However, the difference is not comparably worse.
+
+We decided to train the mlbot again against rdeep, but now with 5000 games. 
+Even after this long wait, the robot does not play significantly better or worse.
+
+\begin{lstlisting}[language=bash]
+bot <bots.ml.ml.Bot instance at 0x102a71248>: 14 wins
+bot <bots.rand.rand.Bot instance at 0x102a71170>: 5 wins
+bot <bots.rdeep.rdeep.Bot instance at 0x105aa2cf8>: 11 wins
+\end{lstlisting}
+
+
+\end{enumerate}
 \end{document}

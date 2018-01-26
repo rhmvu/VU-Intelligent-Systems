@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.6)  26 JAN 2018 13:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.6)  26 JAN 2018 15:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -53,30 +53,33 @@ File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
-(./paper.aux)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/tools/enumerate.sty
+Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
+\@enLab=\toks16
+) (./paper.aux)
 \openout1 = `paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
+LaTeX Font Info:    ... okay on input line 12.
 \c@lstlisting=\count95
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 12.
+(Font)              <14.4> on input line 13.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 12.
+(Font)              <7> on input line 13.
  [1
 
-{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./pape
-r.toc
+{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(./paper.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -88,34 +91,34 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout3 = `paper.toc'.
 
  [1]
-Underfull \hbox (badness 10000) in paragraph at lines 29--35
+Underfull \hbox (badness 10000) in paragraph at lines 30--36
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 29--35
+Underfull \hbox (badness 10000) in paragraph at lines 30--36
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 36--43
+Underfull \hbox (badness 10000) in paragraph at lines 37--44
 
  []
 
 
-Overfull \hbox (7.94179pt too wide) in paragraph at lines 36--43
+Overfull \hbox (7.94179pt too wide) in paragraph at lines 37--44
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 36--43
+Underfull \hbox (badness 10000) in paragraph at lines 37--44
 
  []
 
 [2
 
 ]
-Overfull \hbox (0.59317pt too wide) in paragraph at lines 50--51
+Overfull \hbox (0.59317pt too wide) in paragraph at lines 51--52
 []\OT1/cmr/m/n/12 This bot only works in a perfect-information game
  []
 
@@ -125,53 +128,149 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 (/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 ) [3]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 77.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 79.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 77.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 79.
 
-Overfull \hbox (34.17401pt too wide) in paragraph at lines 77--78
+Overfull \hbox (34.17401pt too wide) in paragraph at lines 79--80
 [][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (48.27399pt too wide) in paragraph at lines 78--79
+Overfull \hbox (48.27399pt too wide) in paragraph at lines 80--81
 [][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (55.32397pt too wide) in paragraph at lines 79--80
+Overfull \hbox (55.32397pt too wide) in paragraph at lines 81--82
 [][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 84.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 86.
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 84.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 86.
  [4]
-Overfull \hbox (34.17401pt too wide) in paragraph at lines 112--113
+Overfull \hbox (34.17401pt too wide) in paragraph at lines 119--120
 [][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (76.47394pt too wide) in paragraph at lines 113--114
+Overfull \hbox (76.47394pt too wide) in paragraph at lines 120--121
 [][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[5] (./paper.aux) ) 
+[5]
+Overfull \hbox (48.27399pt too wide) in paragraph at lines 176--177
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (55.32397pt too wide) in paragraph at lines 177--178
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (55.32397pt too wide) in paragraph at lines 178--179
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 181--185
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 181--185
+
+ []
+
+
+Overfull \hbox (48.27399pt too wide) in paragraph at lines 188--189
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][] 
+ []
+
+[6]
+Overfull \hbox (55.32397pt too wide) in paragraph at lines 189--190
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (55.32397pt too wide) in paragraph at lines 190--191
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][] 
+ []
+
+[7]
+Overfull \hbox (41.224pt too wide) in paragraph at lines 252--253
+[][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (13.02405pt too wide) in paragraph at lines 256--257
+[][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (34.17401pt too wide) in paragraph at lines 257--258
+[][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (55.32397pt too wide) in paragraph at lines 258--259
+[][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (13.02405pt too wide) in paragraph at lines 265--266
+[][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (34.17401pt too wide) in paragraph at lines 266--267
+[][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (48.27399pt too wide) in paragraph at lines 267--268
+[][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[8]
+Overfull \hbox (13.02405pt too wide) in paragraph at lines 276--277
+[][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (34.17401pt too wide) in paragraph at lines 277--278
+[][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (55.32397pt too wide) in paragraph at lines 278--279
+[][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+[9] (./paper.aux) ) 
 Here is how much of TeX's memory you used:
- 1659 strings out of 492995
- 23223 string characters out of 6132705
- 115029 words of memory out of 5000000
- 5254 multiletter control sequences out of 15000+600000
+ 1727 strings out of 492995
+ 24180 string characters out of 6132705
+ 119361 words of memory out of 5000000
+ 5319 multiletter control sequences out of 15000+600000
  9763 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 32i,7n,51p,741b,1302s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 32i,7n,51p,741b,1509s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmbx12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfont
@@ -181,10 +280,10 @@ m/cmr12.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmr17.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
 i12.pfb>
-Output written on paper.pdf (6 pages, 104839 bytes).
+Output written on paper.pdf (10 pages, 119405 bytes).
 PDF statistics:
- 55 PDF objects out of 1000 (max. 8388607)
- 38 compressed objects within 1 object stream
+ 69 PDF objects out of 1000 (max. 8388607)
+ 48 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
