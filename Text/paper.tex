@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,11pt]{article}
 
 \usepackage{listings}
 \usepackage{enumerate}
@@ -11,9 +11,6 @@
 
 \begin{document}
 \maketitle
-\titlepage
-
-\tableofcontents
 \clearpage
 
 \begin{abstract}
@@ -21,7 +18,7 @@ Abstract paragraph with abstract shit about abstract things
 \end{abstract}
 
 \section{Introduction}
-Introduction
+Artificial Intelligence is becoming a huge subject, and we see it appearing more and more in daily life: voice assistants on smartphones, self-driving Tesla's, AlphaGo defeating Go masters, and so on. ... We can make a distinction between strong and weak AI [1]: \textit{weak AI} is focused on mastering problems in one limited area, whereas \textit{strong AI} is considered to be Artificial Intelligence with \textit{actual} intelligence, and even self-awareness. For this paper, we will be focussing on weak AI in games, more specifically in the game of Schnapsen. In section 2 we will describe Schnapsen in more detail, alongside the bots used for the game. The research question will be described in section 3. In section 4, we will talk more about the experiment. ...
 
 \section{Background Information}
 \subsection{Schnapsen}
@@ -46,7 +43,7 @@ A lot of points can also be won by marriages. If the player is leading the trick
 The game starts in phase one, an imperfect-information game. Each agent has 5 cards. Player 1 plays a card, thereby determining the suit that has to be played. To win the trick, player 2 has to play a higher-ranking card from the same suit, or a trump card. Player 2 does not have to follow suit in phase 1, but he/she will lose the trick in that case. The winner of the trick now becomes player one and gets the cards, with the amount of points the two cards represent. This goes on until the stock is depleted; then we enter phase 2, a perfect-information game. Player 2 now has to follow suit. If it cannot do that, the player has to trump, and otherwise play any card. If a player reaches 66 points or more, the game is over.
 
 \subsection{Intelligent Systems Schnapsen Framework}
-The course provided us with a framework. We have an api, which is the skeleton for the Schnapsen game, and we have two scripts: one where we can let bots play against each other in a single game where we can see all the moves, and a script where we can play a tournament - with a specifiable number of the number of games to be played - and see how many games each bot has won. There are already multiple bots already present in the framework to play against:
+An API in Python has been provided, together with a framework for the Schnapsen game. Furthermore, we  have two scripts: one where bots can play against each other in a single game where all moves in the game can be seen, and a script where bots can play a tournament against each other - with a specifiable number of the number of games to be played - and where the number of won games per robot can be seen. There are already multiple bots already present in the framework to play against:
 \begin{description}
 \item [Minimax / Alphabeta:] This bot only works in a perfect-information game (phase 2 of Schnapsen). It recursively looks through all the states, and decides what the best move to play will be, provided that the opponent plays optimally, and will try to minimize the outcome of the game for the player.
 \item [Bully:] Plays by a defined set of rules. If it has a trump card, it will play that. Otherwise, it will play a card of the same suit player 1 played. If it cannot do either of those things, it will play the highest ranking card of any suit.
@@ -59,14 +56,45 @@ The course provided us with a framework. We have an api, which is the skeleton f
 For this paper, we will use machine learning bots with different set features to determine what the best features are.
 
 \section{Research Question}
+In our research, we want to find out if an extended feature space in a machine learning bot will improve its performance in Schnapsen. There is already a machine learning bot present, with what we will call, the \textit{default feature space}, provided by the framework. Our goal is to extend and improve this feature space, and see if the bot will have a better performance. Our hypothesis is that an extended feature space will lead to a better performance, since ..... \\ \\
+\noindent
+The \textit{default feature space} contains the following features:
+\begin{itemize}
+\item Perspective information
+\item Player 1's point count
+\item Player 2's point count
+\item Player 1's pending points
+\item Player 2's pending points
+\item The trump suit
+\item The phase
+\item The stock size
+\item The leader
+\item Whose turn it is currently
+\item The played card of the opponenet
+\end{itemize}
 
 \section{Experimental setup}
+For the testing of the bots, multiple Schnapsen tournaments were held. Each bot played a 100 games against every other bot. The competing bots were:
+\begin{itemize}
+\item Minimax
+\item Bully
+\item Rand
+\item Rdeep
+\item KBBot
+\item ML
+\item MLAdvanced
+\end{itemize}
+
+Both ML, and MLAdvanced were trained on the same bot. First, bully, then rand, then rdeep, then kbbot, etc.
 
 \section{Results}
 
 \section{Findings}
 
 \section{Conclusion}
+
+\section{References}
+1. http://humanparagon.com/strong-and-weak-ai/
 
 \appendix
 \section{Worksheet I}
