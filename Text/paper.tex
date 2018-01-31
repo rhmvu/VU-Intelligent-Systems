@@ -43,7 +43,7 @@ A lot of points can also be won by marriages. If the player is leading the trick
 The game starts in phase one, an imperfect-information game. Each agent has 5 cards. Player 1 plays a card, thereby determining the suit that has to be played. To win the trick, player 2 has to play a higher-ranking card from the same suit, or a trump card. Player 2 does not have to follow suit in phase 1, but he/she will lose the trick in that case. The winner of the trick now becomes player one and gets the cards, with the amount of points the two cards represent. This goes on until the stock is depleted; then we enter phase 2, a perfect-information game. Player 2 now has to follow suit. If it cannot do that, the player has to trump, and otherwise play any card. If a player reaches 66 points or more, the game is over.
 
 \subsection{Intelligent Systems Schnapsen Framework}
-An API in Python has been provided, together with a framework for the Schnapsen game. Furthermore, we  have two scripts: one where bots can play against each other in a single game where all moves in the game can be seen, and a script where bots can play a tournament against each other - with a specifiable number of the number of games to be played - and where the number of won games per robot can be seen. There are already multiple bots already present in the framework to play against:
+An API in Python has been provided, together with a framework for the Schnapsen game. Furthermore, we  have two scripts: one where bots can play against each other in a single game where all moves in the game can be seen, and a script where bots play a tournament against each other - with a specifiable number of games to be played - and where the number of won games per robot can be seen. There are already multiple bots present in the framework to play against:
 \begin{description}
 \item [Minimax / Alphabeta:] This bot only works in a perfect-information game (phase 2 of Schnapsen). It recursively looks through all the states, and decides what the best move to play will be, provided that the opponent plays optimally, and will try to minimize the outcome of the game for the player.
 \item [Bully:] Plays by a defined set of rules. If it has a trump card, it will play that. Otherwise, it will play a card of the same suit player 1 played. If it cannot do either of those things, it will play the highest ranking card of any suit.
@@ -53,7 +53,7 @@ An API in Python has been provided, together with a framework for the Schnapsen 
 \end{description}
 
 \subsection{Machine Learning Bots}
-For this paper, we will use machine learning bots with different set features to determine what the best features are.
+For this paper, we will use machine learning bots with different sets of features to determine what the best features are.
 
 \section{Research Question}
 In our research, we want to find out if an extended feature space in a machine learning bot will improve its performance in Schnapsen. There is already a machine learning bot present, with what we will call, the \textit{default feature space}, provided by the framework. Our goal is to extend and improve this feature space, and see if the bot will have a better performance. Our hypothesis is that an extended feature space will lead to a better performance, since ..... \\ \\
@@ -75,30 +75,50 @@ The \textit{default feature space} contains the following features:
 
 \section{Experimental setup}
 
-WORK IN PROGRESSSS
+To answer our research question, multiple Schnapsen tournaments were held. Each learning bot played multiple 120 game tournaments against each individual non-learning bot. 
 
-To answer our research question, multiple Schnapsen tournaments were held. Each learning bot played multiple 120 game tournaments against each individual non-learning bot. Each learning bot played a total of 9 tournaments with 3 different models against each static bot.
 \subsection{The bots}
-The non- learning opponents were Rand, Bully and Rdeep. The learning components we created were:
+The non- learning opponents were Rand, Bully and Rdeep. The learning bots we created were:
 \begin{description}
-\item [ml\_minimal:] asdf
-\item [ml\_stripped:]  asdf
+\item [ml\_minimal:] This bot has only the perspective and both players points as features.
+
+\item [ml\_stripped:] ml\_stripped has all the \textit{default feature space} except for both players pending points and trumpsuit id.
+
 \item [ml:] This ml bot is provided by the framework and consists of the  \textit{default feature space} 
-\item [ml\_enriched:]  asdf
-\item [ml\_advanced:] asdf
+
+\item [ml\_enriched:]  This bot has all the features of ml bot. In addition to the \textit{default feature space} the following features were added to the feature space:
+\begin{itemize}
+\item Both player's points squared
+\item Both player's pending points squared
+\item Both player's points cubed
+\item Both player's pending points cubed
+\end{itemize}
+
+\item [ml\_advanced:] ml\_advanced  has the following features in addition to the \textit{default feature space}:
+\begin{itemize}
+\item Difference between points
+\item Difference between pending points
+\item Trump card ratio in hand
+\item High card ratio in hand (10/A's)
+\item Number of trump cards in hand in phase 2
+\item Number of cards with same suit as opponents played suit
+\item Number of points in hand (squared)
+\end{itemize}
 \end{description}
 
 
-The research procedure was as follows:
+\subsection{The testing procedure}
+
+Each learning bot played a total of 9 tournaments with 3 different models against each non-learning bot.
+The testing procedure was as follows:
 \begin{itemize}
 \item Training
-\item 120 game tournament
-\item 120 game tournament
-\item 120 game tournament
+\item 120 Game tournament
+\item 120 Game tournament
+\item 120 Game tournament
 \end{itemize}
 
-This procedure was repeated twice to reach the total of 9 tournaments respectively. The machine-learning bots did not compete against eachother.
-Both ML, and MLAdvanced were trained on the same bot. First, bully, then rand, then rdeep, then kbbot, etc.
+This procedure was repeated twice to reach the total of 9 tournaments respectively. The testing only occured between learning and non-learning bots.  The learning bots did not compete against eachother.  In case of Rand and Bully, the training process consisted of 100,000 observations of the (non-learning) opponent . Rdeep was only observed 10,000 times during training. 
 
 \section{Results}
 
