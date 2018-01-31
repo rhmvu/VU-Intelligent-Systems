@@ -24,14 +24,14 @@ from bots.ml import ml
 #from bots.ml.ml import features
 from bots.ml_stripped.ml_stripped import features
 # How many games to play
-GAMES = 10000
+GAMES = 100000
 
 # Which phase the game starts in
 PHASE = 1
 
 # The player we'll observe
-#player = rand.Bot()
-player = rdeep.Bot()
+player = rand.Bot()
+#player = rdeep.Bot()
 #player = ml_advanced.Bot()
 
 data = []
