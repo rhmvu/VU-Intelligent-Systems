@@ -31,7 +31,8 @@ PHASE = 1
 
 # The player we'll observe
 #player = rand.Bot()
-player = rdeep.Bot()
+#player = rdeep.Bot()
+player = bully.Bot()
 #player = ml_advanced.Bot()
 
 data = []

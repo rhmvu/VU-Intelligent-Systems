@@ -22,7 +22,7 @@ from bots.ml import ml
 
 #Pick the features of which bot you want to use for training the model:
 #from bots.ml.ml import features
-from bots.ml_minimal.ml_minimal import features
+from bots.ml_stripped.ml_stripped import features
 # How many games to play
 GAMES = 10000
 
@@ -31,8 +31,7 @@ PHASE = 1
 
 # The player we'll observe
 #player = rand.Bot()
-#player = rdeep.Bot()
-player = bully.Bot()
+player = rdeep.Bot()
 #player = ml_advanced.Bot()
 
 data = []
@@ -91,7 +90,7 @@ for str in target:
 print('instances per class: {}'.format(count))
 
 # Store the model in the ml directory
-joblib.dump(model, './bots/ml_minimal/model.pkl')
-#joblib.dump(model, './bots/ml_advanced/model.pkl')
+#joblib.dump(model, './bots/ml/model.pkl')
+joblib.dump(model, './bots/ml_stripped/model.pkl')
 
 print('Done')
