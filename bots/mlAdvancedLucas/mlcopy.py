@@ -13,8 +13,8 @@ from sklearn.externals import joblib
 # with a different name, point this line to its path.
 DEFAULT_MODEL = os.path.dirname(os.path.realpath(__file__)) + '/model.pkl'
 
-class Bot:
 
+class Bot:
     __randomize = True
 
     __model = None
@@ -85,6 +85,7 @@ class Bot:
 
         return res
 
+
 def maximizing(state):
     """
     Whether we're the maximizing player (1) or the minimizing player (2).
@@ -130,9 +131,18 @@ def features(state):
     p1_pending_points = state.get_pending_points(1)
     feature_set.append(p1_pending_points)
 
-    # Add plauer 2's pending points to feature set
+    # Add player 2's pending points to feature set
     p2_pending_points = state.get_pending_points(2)
     feature_set.append(p2_pending_points)
+
+    # Difference between points
+    point_difference = abs(max(p1_points, p2_points) - min(p1_points, p2_points))
+    feature_set.append(point_difference)
+
+    # Difference between pending points
+    pending_point_difference = abs(
+        max(p1_pending_points, p2_pending_points) - min(p1_pending_points, p2_pending_points))
+    feature_set.append(pending_point_difference)
 
     # Get trump suit
     trump_suit = state.get_trump_suit()
@@ -143,9 +153,36 @@ def features(state):
     trump_suit_id = suits.index(trump_suit)
     feature_set.append(trump_suit_id)
 
+    # Trump card ratio:
+    cards = state.hand()
+    trump_card_count = 0
+    for card in cards:
+        if Deck.get_suit(cards[0]) == state.get_trump_suit():
+            trump_card_count += 1
+    if trump_card_count != 0:
+        trump_card_count = (trump_card_count / len(state.hand())) * 100
+    feature_set.append(trump_card_count)
+
+    # High ranking cards ratio:
+    high_rank_count = 0
+    for card in cards:
+        if Deck.get_rank(cards[0]) == "A" or Deck.get_rank(cards[0]) == "10":
+            high_rank_count += 1
+    if high_rank_count != 0:
+        high_rank_count = (high_rank_count / len(state.hand())) * 100
+    feature_set.append(high_rank_count)
+
     # Add phase to feature set
     phase = state.get_phase()
     feature_set.append(phase)
+
+    # Number of trump cards in phase 2:
+    phase2_trump_cards = 0
+    if phase == 2:
+        phase2_trump_cards = trump_card_count ** 2
+        feature_set.append(phase2_trump_cards)
+    else:
+        feature_set.append(phase2_trump_cards)
 
     # Add stock size to feature set
     stock_size = state.get_stock_size()
@@ -166,23 +203,28 @@ def features(state):
     opponents_played_card = opponents_played_card if opponents_played_card is not None else -1
     feature_set.append(opponents_played_card)
 
+    # Do I have cards in same suit as oppponent?
+    same_suit_cards = 0
+    for card in cards:
+        if Deck.get_suit(cards[0]) == Deck.get_suit(opponents_played_card):
+            same_suit_cards += 1
+    feature_set.append(same_suit_cards)
+
     # Get number of points in hand
     cards = state.hand()
     number_of_points = 0
     for card in cards:
         if cards[0] is not None:
-            if Deck.get_rank(cards[0]) == Deck.get_rank("J"):
-                number_of_points += 1**2
-            elif Deck.get_rank(cards[0]) == Deck.get_rank("Q"):
-                number_of_points += 2**2
-            elif Deck.get_rank(cards[0]) == Deck.get_rank("K"):
-                number_of_points += 3**2
-            elif Deck.get_rank(cards[0]) == Deck.get_rank("10"):
-                number_of_points += 10**2
-            elif Deck.get_rank(cards[0]) == Deck.get_rank("A"):
-                number_of_points += 11**2
+            if Deck.get_rank(cards[0]) == "J":
+                number_of_points += 1 ** 2
+            elif Deck.get_rank(cards[0]) == "Q":
+                number_of_points += 2 ** 2
+            elif Deck.get_rank(cards[0]) == "K":
+                number_of_points += 3 ** 2
+            elif Deck.get_rank(cards[0]) == "10":
+                number_of_points += 10 ** 2
+            elif Deck.get_rank(cards[0]) == "A":
+                number_of_points += 11 ** 2
 
     feature_set.append(number_of_points)
-
-    # Return feature set
     return feature_set
