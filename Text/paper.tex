@@ -18,7 +18,7 @@ Abstract paragraph with abstract shit about abstract things
 \end{abstract}
 
 \section{Introduction}
-Artificial Intelligence is becoming a huge subject, and we see it appearing more and more in daily life: voice assistants on smartphones, self-driving Tesla's, AlphaGo defeating Go masters, and so on. ... We can make a distinction between strong and weak AI [1]: \textit{weak AI} is focused on mastering problems in one limited area, whereas \textit{strong AI} is considered to be Artificial Intelligence with \textit{actual} intelligence, and even self-awareness. For this paper, we will be focussing on weak AI in games, more specifically in the game of Schnapsen. In section 2 we will describe Schnapsen in more detail, alongside the bots used for the game. The research question will be described in section 3. In section 4, we will talk more about the experiment. ...
+Artificial Intelligence is becoming a huge subject, and we see it appearing more and more in daily life: voice assistants on smartphones, self-driving Tesla's, AlphaGo defeating Go masters, and so on. ... We can make a distinction between strong and weak AI [1]: \textit{weak AI} is focused on mastering problems in one limited area, whereas \textit{strong AI} is considered to be Artificial Intelligence with \textit{actual} intelligence, and even self-awareness. For this paper, we will be focussing on weak AI in games, more specifically in the game of Schnapsen. In section 2 we will describe Schnapsen and the Schnapsen framework in detail, alongside the bots already implemented. The research question will be described in section 3. In section 4, we will talk more about the machine-learning bots, and the research setup. Consequently in section 5 we will describe the results of the experiment, and in section 6 we will elaborate on our findings. Finally, in section 7 we will draw our conclusion.
 
 \section{Background Information}
 \subsection{Schnapsen}
@@ -77,38 +77,19 @@ The \textit{default feature space} contains the following features:
 \noindent
 Our goal is to build multiple bots machine learning bots, both with extended feature spaces and narrower feature spaces, and see which bot will perform best. With \textit{performs best}, we mean which bot will have the most wins against the other bots (rdeep, bully, rand, minimax, kbbot). Our hypothesis is that the bots with an extended feature space will outperform the bots with a narrower feature space. The default machine-learning bot will probably lie somewhere in the middle of the bots in terms of performance.
 
-\section{Machine Learning Bots Feature Space}
-For the purpose of our research, we created 5 machine-learning bots accompanying the original machine-learning bot. Below, we will give an overview of the bots and the changes made. For the whole overview, refer to appendix A:
-
-\subsection{ ml\_stripped}
-This bot stripped-down version of the original ml-bot. Its feature space only contains the perspective, and the point count of both player 1 and player 2.
-
-\subsection{ml\_minimal}
-...
-
-\subsection{ml\_advancedSimple}
-This bot has a slightly extended feature space in comparison to the original ml-bot. The added features are player 1 and player 2 points are squared and cubed and added to the feature space. The same goes for the pending points, these are also squared and cubed, and added to the feature space, in order to get more of a difference in the data points.
-
-\subsection{ml\_advanced}
-This bot has a more extended feature space. Added are differences between points, differences between pending points, trump card ratio in the hand, high-ranking card ratio (10's or A's) in the hand, number of trump cards in phase 2, number of same suit cards as opponent's played card, and number of points currently in the hand $^2$. 
-
-\subsection{ml\_combined} 
-The ml-combined bot combines, the advancedSimple and advanced ml-bot, creating a bot with all feature space extensions. 
-
 \section{Experimental setup}
-
-To answer our research question, multiple Schnapsen tournaments were held. Each learning bot played multiple 120 game tournaments against each individual non-learning bot. 
+For the purpose of our research, we created 5 machine-learning bots accompanying the original machine-learning bot, each competing in multiple 120 game Schnapsen tournaments against each individual non-learning bot. Below, we will give an overview of the bots and the changes made with respect to the default machine-learning bot. For the whole overview, refer to appendix A. After that, we will describe the testing procedure.
 
 \subsection{The bots}
 The non- learning opponents were Rand, Bully and Rdeep. The learning bots we created were:
 \begin{description}
-\item [ml\_minimal:] This bot has only the perspective and both players points as features.
+\item [ml\_minimal:] This bot has only the perspective and the point count of both player 1 and player 2 as features.
 
 \item [ml\_stripped:] ml\_stripped has all the \textit{default feature space} except for both players pending points and trumpsuit id.
 
 \item [ml:] This ml bot is provided by the framework and consists of the  \textit{default feature space} 
 
-\item [ml\_enriched:]  This bot has all the features of ml bot. In addition to the \textit{default feature space} the following features were added to the feature space:
+\item [ml\_enriched:]  This bot has a slightly extended feature space in comparison to the original ml-bot. The following features were added to the feature space:
 \begin{itemize}
 \item Both player's points squared
 \item Both player's pending points squared
@@ -116,7 +97,8 @@ The non- learning opponents were Rand, Bully and Rdeep. The learning bots we cre
 \item Both player's pending points cubed
 \end{itemize}
 
-\item [ml\_advanced:] ml\_advanced  has the following features in addition to the \textit{default feature space}:
+\item [ml\_advanced:] 
+This bot has a more extended feature space in addition to the \textit{default feature space}. Added are: 
 \begin{itemize}
 \item Difference between points
 \item Difference between pending points
@@ -126,9 +108,9 @@ The non- learning opponents were Rand, Bully and Rdeep. The learning bots we cre
 \item Number of cards with same suit as opponents played suit
 \item Number of points in hand (squared)
 \end{itemize}
+
+\item[ml\_combined:] This bot has the most extended feature space. It combines the features of ml\_enriched and ml\_advanced.
 \end{description}
-
-
 \subsection{The testing procedure}
 
 Each learning bot played a total of 9 tournaments with 3 different models against each non-learning bot.
@@ -140,7 +122,7 @@ The testing procedure was as follows:
 \item 120 Game tournament
 \end{itemize}
 
-This procedure was repeated twice to reach the total of 9 tournaments respectively. The testing only occured between learning and non-learning bots.  The learning bots did not compete against eachother.  In case of Rand and Bully, the training process consisted of 100,000 observations of the (non-learning) opponent . Rdeep was only observed 10,000 times during training. 
+This procedure was repeated twice to reach the total of 9 tournaments respectively. The testing only occured between learning and non-learning bots.  The learning bots did not compete against eachother.  In case of Rand and Bully, the training process consisted of 100,000 observations of the (non-learning) opponent . Rdeep was only observed 10,000 times during training.
 
 \section{Results}
 
@@ -153,14 +135,24 @@ This procedure was repeated twice to reach the total of 9 tournaments respective
 
 appendix
 \section{Overview of machine-learning bots' feature spaces}
-\subsection{ml\_stripped}
+\subsection{ml\_minimal}
 \begin{itemize}
 \item Perspective information
 \item Player 1's point count
 \item Player 2's point count
 \end{itemize}
-\subsection{ml\_minimal}
-\subsection{ml\_advancedSimple}
+\subsection{ml\_stripped}
+\begin{itemize}
+\item Perspective information
+\item Player 1's point count
+\item Player 2's point count
+\item The phase
+\item The stock size
+\item The leader
+\item Whose turn it is currently
+\item The played card of the opponent
+\end{itemize}
+\subsection{ml\_enriched}
 \begin{itemize}
 \item Perspective information
 \item Player 1's point count
@@ -257,10 +249,53 @@ bot <bots.rdeep.rdeep.Bot instance at 0x101a71170>: 20 wins
 
 \item Have the bots complete a large number of tournaments (preferably n > 30), see if the rdeep bot still outperforms the rand bot, and how big the difference in wins is. If there is a significant difference, we can assume that rdeep is better than rand.
 
-\item Bot:
+\item MyBot implementation:
+It plays any available trump card first. If none is available it picks a random card.
+
+\begin{lstlisting}[language=bash]
+def get_move(self, state):
+        moves = state.moves()
+        return get_trump_card(moves,state)
+def get_trump_card(moves,state):
+    randomChoice = random.choice(moves)
+    counter = 0
+    if randomChoice == None:
+        print "NONE FOUND"
+    if moves == None:
+        print "None available"
+        return None
+    while True:
+        randomChoice = random.choice(moves)
+        counter +=1
+        if randomChoice == None:
+            print "NONE returned"
+            return randomChoice
+        try:
+            if util.get_suit(randomChoice[0]) 
+            == State.get_trump_suit(state):
+                #print "Playing trump card"
+                return randomChoice
+        except:
+            #print "KEY ERROR"
+            pass
+        if counter > 40 and not randomChoice == None:
+            #print "Playing normal card"
+            return randomChoice
+    return randomChoice
+\end{lstlisting}
+
+When no legal moves are to be made except the best trump card you have no legal moves when you  remove the trump card from the list of legal moves. In that case the python program expects a move but it gets a return type "None". That's why it raises an error.
+
+Output:
+\begin{lstlisting}[language=bash]
+Results:
+    bot <bots.rand.rand.Bot instance at 0x7fe73586fab8>: 25 wins
+    bot <bots.mybot.mybot.Bot instance at 0x7fe73587a440>: 45 wins
+\end{lstlisting}
 
 \item The heat map:
 - Insert pdf here - This heatmap means:
+If player 2 has a high non-move probability, this is better for player 1 if player 1 has a low-non move probability. Both players seem to have a good value if the non-move probability is around 0.4 - 0.6.
 
 \item The added line:
 \begin{lstlisting}[language=bash]
@@ -285,9 +320,16 @@ bot <bots.rand.rand.Bot instance at 0x102a70f80>: 4 wins
 bot <bots.minimax.minimax.Bot instance at 0x102a731b8>: 6 wins
 \end{lstlisting}
 
-\item
+\item The added code:
+
+
+It creates one instance for each bot, minimax and alphabeta. Then in generates a state, and it does a few random moves. It measures the time to get the next move from both the minimax and alphabeta, then it compares the outcomes. If they are equal it will print "Agreed." else it will display the answers of both bots. This process is repeated a few times.
+Even though the code is right, the checking program does not behave correctly. That's why we do not have a valid output.
 
 \item The heuristic is a value between -1.0 and 1.0, derived from the point ratio of the current player. If the player has a 1.0 value, the player has a definite win. If the value is -1.0, the opponent has a definite win.
+
+We came up with, the ratio of trump cards in hand, it turned out to be a horrible heuristic. Holding on to your trumps seems to be a bad tactic. Therefore we tried ditching trumps as soon as possible, this lead to somewhat better results, but random was still a better bot in the end. 
+
 \end{enumerate}
 \section{Worksheet II}
 \begin{enumerate}
@@ -387,8 +429,37 @@ kb.add_clause(b, c)
 kb.add_clause(b, d)
 \end{lstlisting}
 
-\item 
+\item 6)The playing ace strategy work:
 
+\begin{lstlisting}[language=bash]
+kb.add_clause(A0)
+kb.add_clause(A5)
+kb.add_clause(A10)
+kb.add_clause(A15)
+
+
+#PLAY ACE STRATEGY
+kb.add_clause(~A0, PA0)
+kb.add_clause(~A5, PA5)
+kb.add_clause(~A10, PA10)
+kb.add_clause(~A15, PA15)
+kb.add_clause(~PA0, A0)
+kb.add_clause(~PA5, A5)
+kb.add_clause(~PA10, A10)
+kb.add_clause(~PA15, A15)
+\end{lstlisting}
+
+When adding: 
+\begin{lstlisting}[language=bash]
+kb.add_clause(~PA0)
+\end{lstlisting}
+The statisfiability with the KB fails, therefore we know PA0 is entailed by the KB
+
+\item We implemented the PlayCheap strategy:
+
+\item Game output
+
+\item 
 \end{enumerate}
 \section{Worksheet III}
 \begin{enumerate}
@@ -443,6 +514,22 @@ bot <bots.rand.rand.Bot instance at 0x102a71170>: 5 wins
 bot <bots.rdeep.rdeep.Bot instance at 0x105aa2cf8>: 11 wins
 \end{lstlisting}
 
+\item We created three ml bots:
+\begin{itemize}
+\item The first one was trained on rdeep
+\item The second one was trained on rand
+\item The third one was trained on the second bot.
+\end{itemize}
+
+We played a tournament with 300 games in total. The results:
+\begin{lstlisting}[language=bash]
+    bot <bots.ml.ml.Bot instance at 0x10ad81ef0>: 92 wins
+    bot <bots.ml.ml.Bot instance at 0x10ad81f80>: 99 wins
+    bot <bots.ml.ml.Bot instance at 0x10b80cb00>: 109 wins
+\end{lstlisting}
+As you can see, bot 3 only performed a bit better than the other two, but there is no really significant difference between the bots.
+
+\item For added features, read this research paper. It's all about added features.
 
 \end{enumerate}
 \end{document}
