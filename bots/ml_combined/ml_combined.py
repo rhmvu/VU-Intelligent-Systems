@@ -122,18 +122,26 @@ def features(state):
     # Add player 1's points to feature set
     p1_points = state.get_points(1)
     feature_set.append(p1_points)
+    feature_set.append(p1_points**2)
+    feature_set.append(p1_points**3)
 
     # Add player 2's points to feature set
     p2_points = state.get_points(2)
     feature_set.append(p2_points)
+    feature_set.append(p2_points**2)
+    feature_set.append(p2_points**3)
 
     # Add player 1's pending points to feature set
     p1_pending_points = state.get_pending_points(1)
     feature_set.append(p1_pending_points)
+    feature_set.append(p1_pending_points**2)
+    feature_set.append(p1_pending_points**3)
 
-    # Add player 2's pending points to feature set
+    # Add plauer 2's pending points to feature set
     p2_pending_points = state.get_pending_points(2)
     feature_set.append(p2_pending_points)
+    feature_set.append(p2_pending_points**2)
+    feature_set.append(p2_pending_points**3)
 
     # Difference between points
     point_difference = abs(max(p1_points, p2_points) - min(p1_points, p2_points))

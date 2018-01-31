@@ -74,17 +74,22 @@ The \textit{default feature space} contains the following features:
 \end{itemize}
 
 \section{Experimental setup}
-For the testing of the bots, multiple Schnapsen tournaments were held. Each bot played a 100 games against every other bot. The competing bots were:
-\begin{itemize}
-\item Minimax
+To answer our research question, multiple Schnapsen tournaments were held. Each machine-learning bot played multiple 120 game tournaments against each individual non-learning bot. Each learning bot played 9 tournaments with 3 different models against each static bot.
+The non-machine learning opponents were:
+ \begin{itemize}
 \item Bully
 \item Rand
 \item Rdeep
-\item KBBot
-\item ML
-\item MLAdvanced
+\end{itemize}
+The research procedure was as follows:
+\begin{itemize}
+\item Training
+\item 120 game tournament
+\item 120 game tournament
+\item 120 game tournament
 \end{itemize}
 
+This procedure was repeated twice to reach the total of 9 tournaments respectively. The machine-learning bots did not compete against eachother.
 Both ML, and MLAdvanced were trained on the same bot. First, bully, then rand, then rdeep, then kbbot, etc.
 
 \section{Results}
