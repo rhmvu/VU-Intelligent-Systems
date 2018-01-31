@@ -56,7 +56,8 @@ An API in Python has been provided, together with a framework for the Schnapsen 
 For this paper, we will use machine learning bots with different set features to determine what the best features are.
 
 \section{Research Question}
-In our research, we want to find out if an extended feature space in a machine learning bot will improve its performance in Schnapsen. There is already a machine learning bot present, with what we will call, the \textit{default feature space}, provided by the framework. Our goal is to extend and improve this feature space, and see if the bot will have a better performance. Our hypothesis is that an extended feature space will lead to a better performance, since ..... \\ \\
+In our research, we want to find what feature set will improve the machine learning bot's performance the most in Schnapsen. There is already a machine learning bot present, which acts as a base line - with what we will call, the \textit{default feature space}- provided by the framework.  \\
+
 \noindent
 The \textit{default feature space} contains the following features:
 \begin{itemize}
@@ -70,8 +71,29 @@ The \textit{default feature space} contains the following features:
 \item The stock size
 \item The leader
 \item Whose turn it is currently
-\item The played card of the opponenet
+\item The played card of the opponent
 \end{itemize}
+
+\noindent
+Our goal is to build multiple bots machine learning bots, both with extended feature spaces and narrower feature spaces, and see which bot will perform best. With \textit{performs best}, we mean which bot will have the most wins against the other bots (rdeep, bully, rand, minimax, kbbot). Our hypothesis is that the bots with an extended feature space will outperform the bots with a narrower feature space. The default machine-learning bot will probably lie somewhere in the middle of the bots in terms of performance.
+
+\section{Machine Learning Bots Feature Space}
+For the purpose of our research, we created 5 machine-learning bots accompanying the original machine-learning bot. Below, we will give an overview of the bots and the changes made. For the whole overview, refer to appendix A:
+
+\subsection{ ml\_stripped}
+This bot stripped-down version of the original ml-bot. Its feature space only contains the perspective, and the point count of both player 1 and player 2.
+
+\subsection{ml\_minimal}
+...
+
+\subsection{ml\_advancedSimple}
+This bot has a slightly extended feature space in comparison to the original ml-bot. The added features are player 1 and player 2 points are squared and cubed and added to the feature space. The same goes for the pending points, these are also squared and cubed, and added to the feature space, in order to get more of a difference in the data points.
+
+\subsection{ml\_advanced}
+This bot has a more extended feature space. Added are differences between points, differences between pending points, trump card ratio in the hand, high-ranking card ratio (10's or A's) in the hand, number of trump cards in phase 2, number of same suit cards as opponent's played card, and number of points currently in the hand $^2$. 
+
+\subsection{ml\_combined} 
+The ml-combined bot combines, the advancedSimple and advanced ml-bot, creating a bot with all feature space extensions. 
 
 \section{Experimental setup}
 
@@ -109,7 +131,89 @@ Both ML, and MLAdvanced were trained on the same bot. First, bully, then rand, t
 \section{References}
 1. http://humanparagon.com/strong-and-weak-ai/
 
-\appendix
+appendix
+\section{Overview of machine-learning bots' feature spaces}
+\subsection{ml\_stripped}
+\begin{itemize}
+\item Perspective information
+\item Player 1's point count
+\item Player 2's point count
+\end{itemize}
+\subsection{ml\_minimal}
+\subsection{ml\_advancedSimple}
+\begin{itemize}
+\item Perspective information
+\item Player 1's point count
+\item Player 1's point count squared
+\item Player 1's point count cubed
+\item Player 2's point count
+\item Player 2's point count squared
+\item Player 2's point count cubed
+\item Player 1's pending points
+\item Player 1's pending points squared
+\item Player 1's pending points cubed
+\item Player 2's pending points
+\item Player 2's pending points squared
+\item Player 2's pending points cubed
+\item The trump suit
+\item The phase
+\item The stock size
+\item The leader
+\item Whose turn it is currently
+\item The played card of the opponent
+\end{itemize}
+\subsection{ml\_advanced}
+\begin{itemize}
+\item Perspective information
+\item Player 1's point count
+\item Player 2's point count
+\item Player 1's pending points
+\item Player 2's pending points
+\item Difference between player 1 and player 2's point count
+\item Difference between player 1 and player 2's pending point count
+\item The trump suit
+\item Trump card ratio (Number of trump cards in hand / total number of cards in hand * 100)
+\item High-ranking card ratio (Number of 10's and A's in hand / total number of cards in hand * 100)
+\item The phase
+\item Number of trump cards in hand in phase 2
+\item The stock size
+\item The leader
+\item Whose turn it is currently
+\item The played card of the opponent
+\item Number of cards in same suit as opponent's played suit in hand.
+\item Number of points in hand squared ($card1^2$ + $card2^2$ ...)
+\end{itemize}
+
+\subsection{ml\_combined}
+\begin{itemize}
+\item Perspective information
+\item Player 1's point count
+\item Player 1's point count squared
+\item Player 1's point count cubed
+\item Player 2's point count
+\item Player 2's point count squared
+\item Player 2's point count cubed
+\item Player 1's pending points
+\item Player 1's pending points squared
+\item Player 1's pending points cubed
+\item Player 2's pending points
+\item Player 2's pending points squared
+\item Player 2's pending points cubed
+\item Difference between player 1 and player 2's point count
+\item Difference between player 1 and player 2's pending point count
+\item The trump suit
+\item Trump card ratio (Number of trump cards in hand / total number of cards in hand * 100)
+\item High-ranking card ratio (Number of 10's and A's in hand / total number of cards in hand * 100)
+\item The phase
+\item Number of trump cards in hand in phase 2
+\item The stock size
+\item The leader
+\item Whose turn it is currently
+\item The played card of the opponent
+\item Number of cards in same suit as opponent's played suit in hand.
+\item Number of points in hand squared ($card1^2$ + $card2^2$ ...)
+\end{itemize}
+
 \section{Worksheet I}
 \begin{enumerate}
 
