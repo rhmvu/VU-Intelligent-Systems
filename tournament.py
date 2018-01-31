@@ -46,7 +46,7 @@ def run_tournament(options):
                 wins[winner] += 1
 
             playedgames += 1
-            print('Played {} out of {:.0f} games ({:.0f}%): {} \r'.format(playedgames, totalgames, playedgames/float(totalgames) * 100, wins))
+            #print('Played {} out of {:.0f} games ({:.0f}%): {} \r'.format(playedgames, totalgames, playedgames/float(totalgames) * 100, wins))
 
     print('Results:')
     for i in range(len(bots)):
