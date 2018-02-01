@@ -1,6 +1,6 @@
 meanArray = c(0.78,0.78,0.81,0.71,0.75,0.70)
               
-
+sd(meanArray)
 #normal names:
 #names(meanArray) = c("ml_minimal", "ml_stripped","ml","ml_advancedSimple","ml_advanced","ml_combined")
 names(meanArray) = c("minimal", "stripped","ml","enriched","advanced","combined")
