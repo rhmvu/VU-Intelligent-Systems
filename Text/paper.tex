@@ -160,10 +160,10 @@ The tournament results are presented in Table 1.
       & \textbf{rand} & \textbf{bully} & \textbf{rdeep} & \textbf{Total} \\ \hline
       ml\_minimal & -2,65\% & -4,45\% & +35,4\% & \textbf{+1,45\%}   \\ \hline
       ml\_stripped & -15\% & -3,76\% & +10,11\% & \textbf{-6,85\%}  \\ \hline
-      ml\_enriched & +1,73\% & -9,01\% & +10,5\% & \textbf{-1,85\%} \\ \hline
+      ml\_enriched & +1,73\% & -11,87\% & +10,5\% & \textbf{-3,10\%} \\ \hline
       ml\_advanced & -1,15\% & -7,76\% & +13,6\%& \textbf{-2,15\%}  \\ \hline
       ml\_combined & +9,58\% & -13,35\% & +6,61\% & \textbf{-0,85\%}  \\ \hline \hline
-      Average improvement & \textbf{-1,5\%} & \textbf{-7,67\%} & \textbf{+15,24\%} &\textbf{-2,05\%} \\ \hline
+      Average improvement & \textbf{-1,5\%} & \textbf{-8,24\%} & \textbf{+15,24\%} &\textbf{-2,3\%} \\ \hline
 \end{tabular} \\
 \end{center}
 
@@ -550,9 +550,378 @@ The statisfiability with the KB fails, therefore we know PA0 is entailed by the 
 
 \item We implemented the PlayCheap strategy:
 
-\item Game output
+\begin{lstlisting}[language=bash]
+from kb import KB, Boolean, Integer
 
-\item 
+# Initialise all variables that you need for you strategies and game knowledge.
+# Add those variables here.. The following list is complete for the Play Jack strategy.
+J0 = Boolean('j0')
+J1 = Boolean('j1')
+J2 = Boolean('j2')
+J3 = Boolean('j3')
+J4 = Boolean('j4')
+J5 = Boolean('j5')
+J6 = Boolean('j6')
+J7 = Boolean('j7')
+J8 = Boolean('j8')
+J9 = Boolean('j9')
+J10 = Boolean('j10')
+J11 = Boolean('j11')
+J12 = Boolean('j12')
+J13 = Boolean('j13')
+J14 = Boolean('j14')
+J15 = Boolean('j15')
+J16 = Boolean('j16')
+J17 = Boolean('j17')
+J18 = Boolean('j18')
+J19 = Boolean('j19')
+PJ0 = Boolean('pj0')
+
+Q0 = Boolean('q0')
+Q1 = Boolean('q1')
+Q2 = Boolean('q2')
+Q3 = Boolean('q3')
+Q4 = Boolean('q4')
+Q5 = Boolean('q5')
+Q6 = Boolean('q6')
+Q7 = Boolean('q7')
+Q8 = Boolean('q8')
+Q9 = Boolean('q9')
+Q10 = Boolean('q10')
+Q11 = Boolean('q11')
+Q12 = Boolean('q12')
+Q13 = Boolean('q13')
+Q14 = Boolean('q14')
+Q15 = Boolean('q15')
+Q16 = Boolean('q16')
+Q17 = Boolean('q17')
+Q18 = Boolean('q18')
+Q19 = Boolean('q19')
+
+K0 = Boolean('k0')
+K1 = Boolean('k1')
+K2 = Boolean('k2')
+K3 = Boolean('k3')
+K4 = Boolean('k4')
+K5 = Boolean('k5')
+K6 = Boolean('k6')
+K7 = Boolean('k7')
+K8 = Boolean('k8')
+K9 = Boolean('k9')
+K10 = Boolean('k10')
+K11 = Boolean('k11')
+K12 = Boolean('k12')
+K13 = Boolean('k13')
+K14 = Boolean('k14')
+K15 = Boolean('k15')
+K16 = Boolean('k16')
+K17 = Boolean('k17')
+K18 = Boolean('k18')
+K19 = Boolean('k19')
+
+PC0 = Boolean('pc0')
+PC1 = Boolean('pc1')
+PC2 = Boolean('pc2')
+PC3 = Boolean('pc3')
+PC4 = Boolean('pc4')
+PC5 = Boolean('pc5')
+PC6 = Boolean('pc6')
+PC7 = Boolean('pc7')
+PC8 = Boolean('pc8')
+PC9 = Boolean('pc9')
+PC10 = Boolean('pc10')
+PC11 = Boolean('pc11')
+PC12 = Boolean('pc12')
+PC13 = Boolean('pc13')
+PC14 = Boolean('pc14')
+PC15 = Boolean('pc15')
+PC16 = Boolean('pc16')
+PC17 = Boolean('pc17')
+PC18 = Boolean('pc18')
+PC19 = Boolean('pc19')
+
+
+def general_information(kb):
+    # GENERAL INFORMATION ABOUT THE CARDS
+    # This adds information which cards are Jacks
+    kb.add_clause(J4)
+    kb.add_clause(~Q4)
+    kb.add_clause(~K4)
+    kb.add_clause(J9)
+    kb.add_clause(~Q9)
+    kb.add_clause(~K9)
+    kb.add_clause(J14)
+    kb.add_clause(~Q14)
+    kb.add_clause(~K14)
+    kb.add_clause(J19)
+    kb.add_clause(~Q19)
+    kb.add_clause(~K19)
+    kb.add_clause(Q3)
+    kb.add_clause(~K3)
+    kb.add_clause(~J3)
+    kb.add_clause(Q8)
+    kb.add_clause(~K8)
+    kb.add_clause(~J8)
+    kb.add_clause(Q13)
+    kb.add_clause(~K13)
+    kb.add_clause(~J13)
+    kb.add_clause(Q18)
+    kb.add_clause(~K18)
+    kb.add_clause(~J18)
+    kb.add_clause(K2)
+    kb.add_clause(~Q2)
+    kb.add_clause(~J2)
+    kb.add_clause(K7)
+    kb.add_clause(~Q7)
+    kb.add_clause(~J7)
+    kb.add_clause(K12)
+    kb.add_clause(~Q12)
+    kb.add_clause(~J12)
+    kb.add_clause(K17)
+    kb.add_clause(~Q17)
+    kb.add_clause(~J17)
+    # Add here whatever is needed for your strategy.
+
+
+def strategy_knowledge(kb):
+    # DEFINITION OF THE STRATEGY
+    # Add clauses (This list is sufficient for this strategy)
+    # PJ is the strategy to play jacks first, so all we need to model is all x PJ(x) <-> J(x),
+    # In other words that the PJ strategy should play a card when it is a jack
+    kb.add_clause(~PC4, J4, Q4, K4)
+    kb.add_clause(~PC9, J9, Q9, K9)
+    kb.add_clause(~PC14, J14, Q14, K14)
+    kb.add_clause(~PC19, J14, Q14, K14)
+
+    kb.add_clause(PC4, ~J4, ~Q4, ~K4)
+    kb.add_clause(PC9, ~J9, ~Q9, ~K9)
+    kb.add_clause(PC14, ~J14, ~Q14, ~K14)
+    kb.add_clause(PC19, ~J14, ~Q14, ~K14)
+
+    kb.add_clause(~PC3, J3, Q3, K3)
+    kb.add_clause(~PC8, J8, Q8, K8)
+    kb.add_clause(~PC13, J13, Q13, K13)
+    kb.add_clause(~PC18, J18, Q18, K18)
+
+    kb.add_clause(PC3, ~J3, ~Q3, ~K3)
+    kb.add_clause(PC8, ~J3, ~Q3, ~K3)
+    kb.add_clause(PC13, ~J13, ~Q13, ~K13)
+    kb.add_clause(PC18, ~J18, ~Q18, ~K18)
+
+    kb.add_clause(~PC2, J2, Q2, K2)
+    kb.add_clause(~PC7, J7, Q7, K7)
+    kb.add_clause(~PC12, J12, Q12, K12)
+    kb.add_clause(~PC17, J17, Q17, K17)
+
+    kb.add_clause(PC2, ~J2, ~Q2, ~K2)
+    kb.add_clause(PC7, ~J7, ~Q7, ~K7)
+    kb.add_clause(PC12, ~J12, ~Q12, ~K12)
+    kb.add_clause(PC17, ~J17, ~Q17, ~K17)
+
+
+8. Game output:
+   Start state: The game is in phase: 1
+Player 1's points: 0, pending: 0
+Player 2's points: 0, pending: 0
+The trump suit is: C
+Player 1's hand: AC KD QD QS JS
+Player 2's hand: 10C QC JC 10H JH
+There are 10 cards in the stock
+
+player1: <bots.kbbot.kbbot.Bot instance at 0x102a72290>
+player2: <bots.rand.rand.Bot instance at 0x102a72518>
+*   Player 2 plays: JC
+The game is in phase: 1
+Player 1's points: 0, pending: 0
+Player 2's points: 0, pending: 0
+The trump suit is: C
+Player 1's hand: AC KD QD QS JS
+Player 2's hand: 10C QC JC 10H JH
+There are 10 cards in the stock
+Player 2 has played card: J of C
+
+*   Player 1 plays: JS
+The game is in phase: 1
+Player 1's points: 0, pending: 0
+Player 2's points: 4, pending: 0
+The trump suit is: C
+Player 1's hand: AC KD QD AS QS
+Player 2's hand: 10C QC 10H QH JH
+There are 8 cards in the stock
+
+*   Player 2 plays: QH
+The game is in phase: 1
+Player 1's points: 0, pending: 0
+Player 2's points: 4, pending: 0
+The trump suit is: C
+Player 1's hand: AC KD QD AS QS
+Player 2's hand: 10C QC 10H QH JH
+There are 8 cards in the stock
+Player 2 has played card: Q of H
+
+*   Player 1 plays: KD
+The game is in phase: 1
+Player 1's points: 0, pending: 0
+Player 2's points: 11, pending: 0
+The trump suit is: C
+Player 1's hand: AC QD KH AS QS
+Player 2's hand: 10C QC 10H JH 10S
+There are 6 cards in the stock
+
+*   Player 2 plays: JH
+The game is in phase: 1
+Player 1's points: 0, pending: 0
+Player 2's points: 11, pending: 0
+The trump suit is: C
+Player 1's hand: AC QD KH AS QS
+Player 2's hand: 10C QC 10H JH 10S
+There are 6 cards in the stock
+Player 2 has played card: J of H
+
+*   Player 1 plays: AS
+The game is in phase: 1
+Player 1's points: 0, pending: 0
+Player 2's points: 24, pending: 0
+The trump suit is: C
+Player 1's hand: AC QD KH KS QS
+Player 2's hand: 10C QC JD 10H 10S
+There are 4 cards in the stock
+
+*   Player 2 plays: QC
+The game is in phase: 1
+Player 1's points: 0, pending: 0
+Player 2's points: 24, pending: 0
+The trump suit is: C
+Player 1's hand: AC QD KH KS QS
+Player 2's hand: 10C QC JD 10H 10S
+There are 4 cards in the stock
+Player 2 has played card: Q of C
+
+*   Player 1 plays: QD
+The game is in phase: 1
+Player 1's points: 0, pending: 0
+Player 2's points: 30, pending: 0
+The trump suit is: C
+Player 1's hand: AC 10D KH KS QS
+Player 2's hand: 10C AD JD 10H 10S
+There are 2 cards in the stock
+
+*   Player 2 plays: 10C
+The game is in phase: 1
+Player 1's points: 0, pending: 0
+Player 2's points: 30, pending: 0
+The trump suit is: C
+Player 1's hand: AC 10D KH KS QS
+Player 2's hand: 10C AD JD 10H 10S
+There are 2 cards in the stock
+Player 2 has played card: 10 of C
+
+*   Player 1 plays: KH
+The game is in phase: 2
+Player 1's points: 0, pending: 0
+Player 2's points: 44, pending: 0
+The trump suit is: C
+Player 1's hand: AC KC 10D KS QS
+Player 2's hand: AD JD AH 10H 10S
+There are 0 cards in the stock
+
+*   Player 2 plays: 10S
+The game is in phase: 2
+Player 1's points: 0, pending: 0
+Player 2's points: 44, pending: 0
+The trump suit is: C
+Player 1's hand: AC KC 10D KS QS
+Player 2's hand: AD JD AH 10H 10S
+There are 0 cards in the stock
+Player 2 has played card: 10 of S
+
+*   Player 1 plays: QS
+The game is in phase: 2
+Player 1's points: 0, pending: 0
+Player 2's points: 57, pending: 0
+The trump suit is: C
+Player 1's hand: AC KC 10D KS
+Player 2's hand: AD JD AH 10H
+There are 0 cards in the stock
+
+*   Player 2 plays: JD
+The game is in phase: 2
+Player 1's points: 0, pending: 0
+Player 2's points: 57, pending: 0
+The trump suit is: C
+Player 1's hand: AC KC 10D KS
+Player 2's hand: AD JD AH 10H
+There are 0 cards in the stock
+Player 2 has played card: J of D
+
+*   Player 1 plays: 10D
+The game is in phase: 2
+Player 1's points: 12, pending: 0
+Player 2's points: 57, pending: 0
+The trump suit is: C
+Player 1's hand: AC KC KS
+Player 2's hand: AD AH 10H
+There are 0 cards in the stock
+
+*   Player 1 plays: KS
+The game is in phase: 2
+Player 1's points: 12, pending: 0
+Player 2's points: 57, pending: 0
+The trump suit is: C
+Player 1's hand: AC KC KS
+Player 2's hand: AD AH 10H
+There are 0 cards in the stock
+Player 1 has played card: K of S
+
+*   Player 2 plays: AD
+The game is in phase: 2
+Player 1's points: 27, pending: 0
+Player 2's points: 57, pending: 0
+The trump suit is: C
+Player 1's hand: AC KC
+Player 2's hand: AH 10H
+There are 0 cards in the stock
+
+*   Player 1 plays: AC
+The game is in phase: 2
+Player 1's points: 27, pending: 0
+Player 2's points: 57, pending: 0
+The trump suit is: C
+Player 1's hand: AC KC
+Player 2's hand: AH 10H
+There are 0 cards in the stock
+Player 1 has played card: A of C
+
+*   Player 2 plays: AH
+The game is in phase: 2
+Player 1's points: 49, pending: 0
+Player 2's points: 57, pending: 0
+The trump suit is: C
+Player 1's hand: KC
+Player 2's hand: 10H
+There are 0 cards in the stock
+
+*   Player 1 plays: KC
+The game is in phase: 2
+Player 1's points: 49, pending: 0
+Player 2's points: 57, pending: 0
+The trump suit is: C
+Player 1's hand: KC
+Player 2's hand: 10H
+There are 0 cards in the stock
+Player 1 has played card: K of C
+
+*   Player 2 plays: 10H
+The game is in phase: 2
+Player 1's points: 66, pending: 0
+Player 2's points: 57, pending: 0
+The trump suit is: C
+Player 1's hand:
+Player 2's hand:
+There are 0 cards in the stock
+
+Game finished. Player 1 has won, receiving 1 points.
+\end{lstlisting}
 \end{enumerate}
 \section{Worksheet III}
 \begin{enumerate}
