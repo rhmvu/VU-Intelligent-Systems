@@ -1,13 +1,18 @@
-\contentsline {section}{\numberline {1}Introduction}{2}
-\contentsline {section}{\numberline {2}Background Information}{2}
-\contentsline {subsection}{\numberline {2.1}Schnapsen}{2}
-\contentsline {subsection}{\numberline {2.2}Intelligent Systems Schnapsen Framework}{3}
+\contentsline {section}{\numberline {1}Introduction}{1}
+\contentsline {section}{\numberline {2}Background Information}{1}
+\contentsline {subsection}{\numberline {2.1}Schnapsen}{1}
+\contentsline {subsection}{\numberline {2.2}Intelligent Systems Schnapsen Framework}{2}
 \contentsline {subsection}{\numberline {2.3}Machine Learning Bots}{3}
 \contentsline {section}{\numberline {3}Research Question}{4}
-\contentsline {section}{\numberline {4}Experimental setup}{4}
-\contentsline {section}{\numberline {5}Results}{4}
-\contentsline {section}{\numberline {6}Findings}{4}
-\contentsline {section}{\numberline {7}Conclusion}{4}
-\contentsline {section}{\numberline {A}Worksheet I}{4}
-\contentsline {section}{\numberline {B}Worksheet II}{6}
-\contentsline {section}{\numberline {C}Worksheet III}{8}
+\contentsline {section}{\numberline {4}Experimental setup}{5}
+\contentsline {subsection}{\numberline {4.1}The bots}{5}
+\contentsline {subsection}{\numberline {4.2}The testing procedure}{6}
+\contentsline {section}{\numberline {5}Results}{7}
+\contentsline {section}{\numberline {6}Findings}{8}
+\contentsline {section}{\numberline {7}Conclusion}{9}
+\contentsline {section}{\numberline {8}References}{9}
+\contentsline {section}{\numberline {9}Appendix}{10}
+\contentsline {subsection}{\numberline {9.1}Overview of machine-learning bots' feature spaces}{10}
+\contentsline {subsection}{\numberline {9.2}Worksheet I}{12}
+\contentsline {subsection}{\numberline {9.3}Worksheet II}{15}
+\contentsline {subsection}{\numberline {9.4}Worksheet III}{17}

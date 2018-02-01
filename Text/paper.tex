@@ -2,7 +2,7 @@
 
 \usepackage{listings}
 \usepackage{enumerate}
-\usepackage{graphicx} % Required for including images
+\usepackage{graphicx}
 \usepackage[font=small,labelfont=bf]{caption}
 \usepackage{geometry}
 
@@ -13,8 +13,24 @@
 	\small Vrije Universiteit Amsterdam}
 
 \begin{document}
+
+
+\begin{titlepage}
+
+\centering
 \maketitle
+\includegraphics[width=0.8\linewidth]{images/vulogo.png}
+\pagenumbering{gobble} %pagenumbering OFF
+
+\end{titlepage}
 \clearpage
+
+\tableofcontents
+\clearpage
+
+
+\pagenumbering{arabic} %pagenumbering ON
+
 
 \begin{abstract}
 This paper examines the effect of extended and narrowed feature spaces on logistic regression machine learning bot. To illustrate this, 5 different machine learning bots were created: two bots with narrowed feature spaces, three bots with extended feature spaces. These bots were trained multiple times, and played multiple tournaments against multiple other bots. The results are.. 
@@ -227,16 +243,17 @@ Performance is different per bot, and we can not say a lot since we do not have 
 3. https://en.wikipedia.org/wiki/Overfitting
 
 \clearpage
+
 \section{Appendix}
 \subsection{Overview of machine-learning bots' feature spaces}
 \begin{description}
-\item[ml\_minimal]
+\item[ml\_minimal] \hfill
 \begin{itemize}
 \item Perspective information
 \item Player 1's point count
 \item Player 2's point count
 \end{itemize}
-\subsection{ml\_stripped}
+\item[ml\_stripped] \hfill
 \begin{itemize}
 \item Perspective information
 \item Player 1's point count
@@ -247,7 +264,7 @@ Performance is different per bot, and we can not say a lot since we do not have 
 \item Whose turn it is currently
 \item The played card of the opponent
 \end{itemize}
-\subsection{ml\_enriched}
+\item[ml\_enriched] \hfill
 \begin{itemize}
 \item Perspective information
 \item Player 1's point count
@@ -269,7 +286,7 @@ Performance is different per bot, and we can not say a lot since we do not have 
 \item Whose turn it is currently
 \item The played card of the opponent
 \end{itemize}
-\subsection{ml\_advanced}
+\item[ml\_advanced] \hfill
 \begin{itemize}
 \item Perspective information
 \item Player 1's point count
@@ -291,7 +308,7 @@ Performance is different per bot, and we can not say a lot since we do not have 
 \item Number of points in hand squared ($card1^2$ + $card2^2$ ...)
 \end{itemize}
 
-\subsection{ml\_combined}
+\item[ml\_combined] \hfill
 \begin{itemize}
 \item Perspective information
 \item Player 1's point count
@@ -321,7 +338,10 @@ Performance is different per bot, and we can not say a lot since we do not have 
 \item Number of points in hand squared ($card1^2$ + $card2^2$ ...)
 \end{itemize}
 \end{description}
-\section{Worksheet I}
+
+
+
+\subsection{Worksheet I}
 \begin{enumerate}
 
 \item The \textit{rdeep} bot performs best, winning 20 out of 30 games. \\
@@ -426,7 +446,7 @@ Even though the code is right, the checking program does not behave correctly. T
 We came up with, the ratio of trump cards in hand, it turned out to be a horrible heuristic. Holding on to your trumps seems to be a bad tactic. Therefore we tried ditching trumps as soon as possible, this lead to somewhat better results, but random was still a better bot in the end. 
 
 \end{enumerate}
-\section{Worksheet II}
+\subsection{Worksheet II}
 \begin{enumerate}
 \item The added clause that makes the knowledge base unsatisfiable:
 \begin{lstlisting}[language=bash]
@@ -556,7 +576,7 @@ The statisfiability with the KB fails, therefore we know PA0 is entailed by the 
 
 \item 
 \end{enumerate}
-\section{Worksheet III}
+\subsection{Worksheet III}
 \begin{enumerate}
 \item The added code:
 \begin{lstlisting}[language=bash]
