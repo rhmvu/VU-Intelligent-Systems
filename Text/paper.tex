@@ -133,7 +133,7 @@ The testing procedure was as follows:
 \item 120 Game tournament
 \end{itemize}
 
-This procedure was repeated twice to reach the total of 9 tournaments respectively. The testing only occurred between learning and non-learning bots.  The learning bots did not compete against each other.  In case of Rand and Bully, each training process consisted of 100,000 observations of the (non-learning) opponent. Rdeep was only observed 10,000 times during training, since training this bot takes a substantial amount of time.
+This procedure was repeated twice to reach the total of 9 tournaments respectively. The testing only occurred between learning and non-learning bots.  The learning bots did not compete against each other.  In case of Rand and Bully, each training process consisted of 100,000 observations of the (non-learning) opponent. Rdeep was only observed 10,000 times during training, since training this bot takes a substantial amount of time. The margin of error we adhere is 5\%.
 \clearpage
 \section{Results}
 The tournament results are presented in Table 1. 
@@ -147,7 +147,7 @@ The tournament results are presented in Table 1.
       ml\_minimal & 843 & 237 & 837 & 243 & 348 & 732 & 2028 & 1212 \\ \hline
       ml\_stripped & 736 & 344 & 843 & 237 & 283 & 797 & 1862 & 1378 \\ \hline
       ml & 866 & 214 & 876 & 204 & 257 & 823 & 1999 & 1241 \\ \hline 
-      ml\_enriched & 881 & 119 & 797 & 283 & 284 & 798 & 1962 & 1278 \\ \hline
+      ml\_enriched & 881 & 119 & 772 & 308 & 284 & 798 & 1937 & 1303 \\ \hline
       ml\_advanced  & 856 & 224 & 808 & 272 & 292 & 788 & 1956 & 1284 \\ \hline
       ml\_combined & 949 & 131 & 759 & 321 & 274 & 806  & 1982 & 1258\\ \hline
   \end{tabular}
@@ -198,13 +198,15 @@ The tournament results are presented in Table 1.
 \section{Findings}
 
 \subsection*{Against Rand}
-There are a few notable things when comparing the performance of our bots. Firstly, while both ml\_minimal and ml\_stripped performed worse that the stock ml bot, as was expected, ml\_stripped actually performs worse than ml\_minimal. Despite the latter of the two having the smallest feature set. Secondly, stripping away most of the feature set in ml\_minimal only led to a relatively small performance loss. Lastly, ml\_enriched and ml\_advanced perform, respectively, a little better and a little worse when compared to the stock ml bot. However, when we combined the feature sets of these two bots in ml\_combined, it led to an performance increase of almost 10\% compared to the stock ml bot. In short, the bots with the larger feature spaces did perform relatively better against rand.
+There are a few notable things when comparing the performance of our bots. Firstly, while both ml\_minimal and ml\_stripped performed slightly worse that the stock ml bot, as was expected, ml\_stripped actually performs worse than ml\_minimal. Despite the latter of the two having the smallest feature set. However, the differences are below 5\% and therefore within the margin of error. Secondly, stripping away most of the feature set in ml\_minimal only led to a relatively small performance loss. Lastly, ml\_enriched and ml\_advanced perform, respectively, a little better and a little worse when compared to the stock ml bot. However, when we combined the feature sets of these two bots in ml\_combined, it led to an performance increase of almost 10\% compared to the stock ml bot. In short, the bots with the larger feature spaces did perform relatively better against rand.
 
 \subsection*{Against Bully}
 
+Notable for the results of the bots against the bully bot are the following points. First of all, the stock ml bot performed the best of all bots. In figure 2 this is clearly noticable. Secondly,  the bots with larger feature spaces than the ml bot peformed significantly worse. Especially ml\_combined and ml
+
 
 \subsection*{Against Rdeep}
-The \textit{standard deviation} of the mean of the 9 tournaments for each bot against rdeep is 0.0280. This number is the lowest of all the non-learning bots and is clearly confirmed by the barplot in figure 3. Rdeep won the majority of the games, which results in a low diversity of winning scores among the learning bots. The worst performer was, surprisingly, the stock ml bot. Although the variance in the winning scores is low, the ml\_minimal bot performs clearly better against rdeep. Compared to the other learning bots, ml\_minimal performs approximately 25\% better. Remarkable is the low score of ml\_combined with the most features of all. The other bots containing a larger feature space did perform slightly better than the stock ml bot.  However, the bots with the smallest featurespaces seemed to perform the best against rdeep.
+The \textit{standard deviation} of the mean of the 9 tournaments for each bot against rdeep is 0.0280. This number is the lowest of all the non-learning bots and is clearly confirmed by the barplot in figure 3. Rdeep won the majority of the games, which results in a low diversity of winning scores among the learning bots. The worst performer was, surprisingly, the stock ml bot. Although the variance in the winning scores is low, the ml\_minimal bot performs clearly better against rdeep. Compared to the other learning bots, ml\_minimal performs approximately 25\% better. Also remarkable is the relatively low score of ml\_combined with the most features of all. The other bots containing a larger feature space did perform slightly better than the stock ml bot, although this is all within the margin of error.  Summarized, the bots with the smallest featurespaces seemed to perform the best against rdeep.
 
 
 
