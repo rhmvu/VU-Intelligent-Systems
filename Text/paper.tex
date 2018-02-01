@@ -17,11 +17,11 @@
 \clearpage
 
 \begin{abstract}
-Abstract paragraph with abstract shit about abstract things
+This paper examines the effect of extended and narrowed feature spaces on logistic regression machine learning bot. To illustrate this, 5 different machine learning bots were created: two bots with narrowed feature spaces, three bots with extended feature spaces. These bots were trained multiple times, and played multiple tournaments against multiple other bots. The results are.. 
 \end{abstract}
 
 \section{Introduction}
-Artificial Intelligence is becoming a huge subject, and we see it appearing more and more in daily life: voice assistants on smartphones, self-driving Tesla's, AlphaGo defeating Go masters, and so on. ... We can make a distinction between strong and weak AI [1]: \textit{weak AI} is focused on mastering problems in one limited area, whereas \textit{strong AI} is considered to be Artificial Intelligence with \textit{actual} intelligence, and even self-awareness. For this paper, we will be focussing on weak AI in games, more specifically in the game of Schnapsen. In section 2 we will describe Schnapsen and the Schnapsen framework in detail, alongside the bots already implemented. The research question will be described in section 3. In section 4, we will talk more about the machine-learning bots, and the research setup. Consequently in section 5 we will describe the results of the experiment, and in section 6 we will elaborate on our findings. Finally, in section 7 we will draw our conclusion.
+Artificial Intelligence is becoming a huge subject, and we see it appearing more and more in daily life: voice assistants on smartphones, self-driving Tesla's, AlphaGo defeating Go masters, and so on. within the field, we can make a distinction between strong and weak AI [1]: \textit{weak AI} is focused on mastering problems in one limited area, whereas \textit{strong AI} is considered to be Artificial Intelligence with \textit{actual} intelligence, and even self-awareness. For this paper, we will concentrate on weak AI in the game of Schnapsen. The weak-AI in this game are machine-learning bots. In this paper, we will specifically focus on the feature spaces of these machine-learning bots, and how the differences in features affect performance of the bots. In section 2 we will describe Schnapsen and the Schnapsen framework in detail, alongside the non-AI bots that have already been implemented. The research question will be described in section 3. In section 4, we will talk about the machine-learning (AI) bots, and the research setup. Consequently in section 5 we will describe the results of the experiment, and in section 6 we will elaborate on our findings. Finally, in section 7 we will draw our conclusion.
 
 \section{Background Information}
 \subsection{Schnapsen}
@@ -56,12 +56,12 @@ An API in Python has been provided, together with a framework for the Schnapsen 
 \end{description}
 
 \subsection{Machine Learning Bots}
-For this paper, we will use machine learning bots with different sets of features to determine what the best features are.
+For this paper, we will use machine learning bots. These bots use a logistic regression algorithm to create the model. The model estimates to probability of a certain response based on on or more features. [2] The model can be retrieved by training the bot against another player. The bot will use the model when playing the actual games. For more information on our implementation of the machine learning bots, refer to section 4.
 
 
 \clearpage
 \section{Research Question}
-In our research, we want to find what feature set will improve the machine learning bot's performance the most in Schnapsen. There is already a machine learning bot present, which acts as a base line - with what we will call, the \textit{default feature space}- provided by the framework.  \\
+In our research, we want to find \textit{what feature set will improve the machine learning bot's performance the most in the game of Schnapsen}. With improve the most, we mean as seen from the baseline. There is already a machine learning bot present, which will act as this base line. This bot has, what we will call the \textit{default feature space}- provided by the framework.  \\
 
 \noindent
 The \textit{default feature space} contains the following features:
@@ -79,21 +79,22 @@ The \textit{default feature space} contains the following features:
 \item The played card of the opponent
 \end{itemize}
 
-\noindent
-Our goal is to build multiple bots machine learning bots, both with extended feature spaces and narrower feature spaces, and see which bot will perform best. With \textit{performs best}, we mean which bot will have the most wins against the other bots (rdeep, bully, rand, minimax, kbbot). Our hypothesis is that the bots with an extended feature space will outperform the bots with a narrower feature space. The default machine-learning bot will probably lie somewhere in the middle of the bots in terms of performance.
 
+
+\noindent
+Our goal is to build multiple bots machine learning bots, both with extended feature spaces and narrower feature spaces, and see which bot will improve most in relation to the default machine-learning bot. Our hypothesis is that the bots with an extended feature space will have a better performance the bots with a narrower feature space, and that the extended feature space bots will perform better than the default bot, where the narrow feature space will perform worse. This is because the narrowing of the feature space can cause underfitting, where the model 'cannot capture the underlying structure of the data'[3] increasing the chance of making a wrong prediction. Consequently, extending the feature space can cause overfitting, where the model has more features than the data needs, which can also lead to making the wrong predictions.
 
 
 \clearpage
 \section{Experimental setup}
-For the purpose of our research, we created 5 machine-learning bots accompanying the original machine-learning bot, each competing in multiple 120 game Schnapsen tournaments against each individual non-learning bot. Below, we will give an overview of the bots and the changes made with respect to the default machine-learning bot. For the whole overview, refer to appendix A. After that, we will describe the testing procedure.
+For the purpose of our research, we created 5 machine-learning bots accompanying the original machine-learning bot, each competing in multiple 120 game Schnapsen tournaments against each individual non-learning bot. All bots were trained and tested in the same way. Below, we will give an overview of the bots and the changes made with respect to the default machine-learning bot. For the whole overview, refer to appendix A. After that, we will describe the testing procedure.
 
 \subsection{The bots}
 The non- learning opponents were Rand, Bully and Rdeep. The learning bots we created were:
 \begin{description}
-\item [ml\_minimal:] This bot has only the perspective and the point count of both player 1 and player 2 as features.
+\item [ml\_minimal:] This bot has the smallest feature space of all: only the perspective and the point count of both player 1 and player 2 as features. We wanted to see if a bot can still perform well, even if it just has minimal amount of information about the game state.
 
-\item [ml\_stripped:] ml\_stripped has all the \textit{default feature space} except for both players pending points and trumpsuit id.
+\item [ml\_stripped:] ml\_stripped has almost all the features of the \textit{default feature space} except for both players pending points and trumpsuit id.
 
 \item [ml:] This ml bot is provided by the framework and consists of the  \textit{default feature space} 
 
@@ -104,6 +105,7 @@ The non- learning opponents were Rand, Bully and Rdeep. The learning bots we cre
 \item Both player's points cubed
 \item Both player's pending points cubed
 \end{itemize}
+These features were added to go more to a design-matrix like feature space. Since the amount of points a player has are important for the game, we chose to focus solely on this.
 
 \item [ml\_advanced:] 
 This bot has a more extended feature space in addition to the \textit{default feature space}. Added are: 
@@ -116,6 +118,7 @@ This bot has a more extended feature space in addition to the \textit{default fe
 \item Number of cards with same suit as opponents played suit
 \item Number of points in hand (squared)
 \end{itemize}
+This is the bot where we chose to add more of our own thought of features. Point difference was added, since this is a good indicator if a player is leading the game by a high margin. Furthermore, we chose to focus on both trump and high-ranking cards in the hand. The more you have, the better it is. The number of trump cards in phase 2 is also important: If you still got all your trump cards in phase 2 of the game, you have a high chance of beating your opponent. Furthermore the number of cards with same suit as opponents played suit feature was added, alongside the number of points in the player hand squared feature.
 
 \item[ml\_combined:] This bot has the most extended feature space. It combines the features of ml\_enriched and ml\_advanced.
 \end{description}
@@ -130,9 +133,42 @@ The testing procedure was as follows:
 \item 120 Game tournament
 \end{itemize}
 
-This procedure was repeated twice to reach the total of 9 tournaments respectively. The testing only occured between learning and non-learning bots.  The learning bots did not compete against eachother.  In case of Rand and Bully, the training process consisted of 100,000 observations of the (non-learning) opponent . Rdeep was only observed 10,000 times during training.
+This procedure was repeated twice to reach the total of 9 tournaments respectively. The testing only occurred between learning and non-learning bots.  The learning bots did not compete against each other.  In case of Rand and Bully, each training process consisted of 100,000 observations of the (non-learning) opponent. Rdeep was only observed 10,000 times during training, since training this bot takes a substantial amount of time.
 \clearpage
 \section{Results}
+The tournament results are presented in Table 1. 
+
+\begin{center}
+  \begin{tabular}{ | l | l l | l l | l l | | l l | }
+     \hline
+      & \textbf{rand} & & \textbf{bully} & & \textbf{rdeep} & & \textbf{Total} & \\
+      & wins & losses & wins & losses & wins & losses  & wins & losses\\ \hline
+      ml\_minimal & 843 & 237 & 837 & 243 & 348 & 732 & 2028 & 1212 \\ \hline
+      ml\_stripped & 736 & 344 & 843 & 237 & 283 & 797 & 1862 & 1378  \\ \hline
+      ml & 866 & 214 & 876 & 204 & 257 & 823 & 1999 & 1241 \\ \hline
+      ml\_enriched & 881 & 119 & 797 & 283 & 284 & 798 & 1962 & 1278 \\ \hline
+      ml\_advanced  & 856 & 224 & 808 & 272 & 292 & 788 & 1956 & 1284 \\ \hline
+      ml\_combined & 949 & 131 & 759 & 321 & 274 & 806 & 1982 & 1258 \\ \hline
+  \end{tabular}
+\end{center}
+ 
+\textbf{Table 1}: Overview of tournament wins and losses per ml-bot. \\
+
+\begin{center}
+\begin{tabular}{| r | r | r | r || r |}
+\hline
+      & \textbf{rand} & \textbf{bully} & \textbf{rdeep} & \textbf{Total} \\ \hline
+      ml\_minimal & -2,65\% & -4,45\% & +35,4\% & \textbf{+1,45\%}   \\ \hline
+      ml\_stripped & -15\% & -3,76\% & 10,11\% & \textbf{-6,85\%}  \\ \hline
+      ml\_enriched & +1,73\% & -9,01\% & 10,5\% & \textbf{- 1,85\%} \\ \hline
+      ml\_advanced & -1,15\% & -7,76\% & 13,6\%& \textbf{-2,15\%}  \\ \hline
+      ml\_combined & 9,58\% & -13,35\% & 6,61\% & \textbf{-0,85\%}  \\ \hline \hline
+      Average improvement & \textbf{-1,5\%} & \textbf{-7,67\%} & \textbf{15,24\%} & \textbf{-2,05\%} \\ \hline
+\end{tabular} \\
+\end{center}
+
+\textbf{Table 2}: Improvement over ml. \\
+
 \begin{center}
 \begin{minipage}{0.49\linewidth}
 \includegraphics[width=\linewidth]{images/barplotRand.png}
@@ -158,8 +194,10 @@ The collected data .............
 
 \section{References}
 1. http://humanparagon.com/strong-and-weak-ai/
+2. https://towardsdatascience.com/machine-learning-part-3-logistics-regression-9d890928680f
+3. https://en.wikipedia.org/wiki/Overfitting
 
-appendix
+Appendix
 \section{Overview of machine-learning bots' feature spaces}
 \subsection{ml\_minimal}
 \begin{itemize}
