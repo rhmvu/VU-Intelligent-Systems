@@ -13,6 +13,6 @@
 \contentsline {section}{\numberline {8}References}{10}{section.8}
 \contentsline {section}{\numberline {9}Appendix}{11}{section.9}
 \contentsline {subsection}{\numberline {9.1}Overview of machine-learning bots' feature spaces}{11}{subsection.9.1}
-\contentsline {subsection}{\numberline {9.2}Worksheet I}{13}{subsection.9.2}
+\contentsline {subsection}{\numberline {9.2}Worksheet I}{14}{subsection.9.2}
 \contentsline {subsection}{\numberline {9.3}Worksheet II}{16}{subsection.9.3}
-\contentsline {subsection}{\numberline {9.4}Worksheet III}{19}{subsection.9.4}
+\contentsline {subsection}{\numberline {9.4}Worksheet III}{24}{subsection.9.4}
