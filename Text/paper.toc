@@ -1,18 +1,22 @@
-\contentsline {section}{\numberline {1}Introduction}{1}
-\contentsline {section}{\numberline {2}Background Information}{1}
-\contentsline {subsection}{\numberline {2.1}Schnapsen}{1}
-\contentsline {subsection}{\numberline {2.2}Intelligent Systems Schnapsen Framework}{2}
-\contentsline {subsection}{\numberline {2.3}Machine Learning Bots}{3}
-\contentsline {section}{\numberline {3}Research Question}{4}
-\contentsline {section}{\numberline {4}Experimental setup}{5}
-\contentsline {subsection}{\numberline {4.1}The bots}{5}
-\contentsline {subsection}{\numberline {4.2}The testing procedure}{6}
-\contentsline {section}{\numberline {5}Results}{7}
-\contentsline {section}{\numberline {6}Findings}{8}
-\contentsline {section}{\numberline {7}Conclusion}{9}
-\contentsline {section}{\numberline {8}References}{9}
-\contentsline {section}{\numberline {9}Appendix}{10}
-\contentsline {subsection}{\numberline {9.1}Overview of machine-learning bots' feature spaces}{10}
-\contentsline {subsection}{\numberline {9.2}Worksheet I}{12}
-\contentsline {subsection}{\numberline {9.3}Worksheet II}{15}
-\contentsline {subsection}{\numberline {9.4}Worksheet III}{17}
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}
+\contentsline {section}{\numberline {2}Background Information}{1}{section.2}
+\contentsline {subsection}{\numberline {2.1}Schnapsen}{1}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Intelligent Systems Schnapsen Framework}{2}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Machine Learning Bots}{3}{subsection.2.3}
+\contentsline {section}{\numberline {3}Research Question}{4}{section.3}
+\contentsline {section}{\numberline {4}Experimental setup}{5}{section.4}
+\contentsline {subsection}{\numberline {4.1}The bots}{5}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}The testing procedure}{6}{subsection.4.2}
+\contentsline {section}{\numberline {5}Results}{7}{section.5}
+\contentsline {section}{\numberline {6}Findings}{9}{section.6}
+\contentsline {section}{\numberline {7}Conclusion}{10}{section.7}
+\contentsline {section}{\numberline {8}References}{10}{section.8}
+\contentsline {section}{\numberline {9}Appendix}{11}{section.9}
+\contentsline {subsection}{\numberline {9.1}Overview of machine-learning bots' feature spaces}{11}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}ml\_stripped}{11}{subsection.9.2}
+\contentsline {subsection}{\numberline {9.3}ml\_enriched}{11}{subsection.9.3}
+\contentsline {subsection}{\numberline {9.4}ml\_advanced}{12}{subsection.9.4}
+\contentsline {subsection}{\numberline {9.5}ml\_combined}{12}{subsection.9.5}
+\contentsline {section}{\numberline {10}Worksheet I}{13}{section.10}
+\contentsline {section}{\numberline {11}Worksheet II}{16}{section.11}
+\contentsline {section}{\numberline {12}Worksheet III}{18}{section.12}

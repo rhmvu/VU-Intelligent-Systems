@@ -3,6 +3,7 @@
 \usepackage{listings}
 \usepackage{enumerate}
 \usepackage{graphicx}
+\usepackage{hyperref}
 \usepackage[font=small,labelfont=bf]{caption}
 \usepackage{geometry}
 
@@ -43,7 +44,7 @@ Artificial Intelligence is becoming a huge subject, and we see it appearing more
 \subsection{Schnapsen}
 Schnapsen is an Austrian card game, played with 20 cards; Only the Jacks, Queens, Kings, 10s and Aces are in the deck. The goal of the game is to win tricks, and to be the first player to score 66 points. Each game has a trump suit, which is determined randomly. A card from the trump suit lets you automatically win the trick, provided that there is no higher trump card in the game.
 
-The game has a multi-agent (we have an opponent), deterministic (the environment is determined by the current state and executed action), static (the environment does not change when an agent is choosing an action) and discrete (the game is turn-based) environment. The game consists of two phases: In phase one, when there are still cards in stock, we have an imperfect information game. In phase two, when the stock is depleted, we have a perfect information game, since we know exactly what the cards of our opponent are. The point count in the game is as follows: \\ \\
+The game has a multi-agent (we have an opponent), deterministic (the environment is determined by the current state and executed action), static (the environment does not change when an agent is choosing an action) and discrete (the game is turn-based) environment [2]. The game consists of two phases: In phase one, when there are still cards in stock, we have an imperfect information game. In phase two, when the stock is depleted, we have a perfect information game, since we know exactly what the cards of our opponent are. The point count in the game is as follows: \\ \\
 \noindent
 \begin{tabular}{l l l l l}
 \textbf{J} & \textbf{Q} & \textbf{K} & \textbf{10} & \textbf{A} \\
@@ -72,7 +73,7 @@ An API in Python has been provided, together with a framework for the Schnapsen 
 \end{description}
 
 \subsection{Machine Learning Bots}
-For this paper, we will use machine learning bots. These bots use a logistic regression algorithm to create the model. The model estimates to probability of a certain response based on on or more features. [2] The model can be retrieved by training the bot against another player. The bot will use the model when playing the actual games. For more information on our implementation of the machine learning bots, refer to section 4.
+For this paper, we will use machine learning bots. These bots use a logistic regression algorithm to create the model. The model estimates to probability of a certain response based on on or more features. [3] The model can be retrieved by training the bot against another player. The bot will use the model when playing the actual games. For more information on our implementation of the machine learning bots, refer to section 4.
 
 
 \clearpage
@@ -98,7 +99,7 @@ The \textit{default feature space} contains the following features:
 
 
 \noindent
-Our goal is to build multiple bots machine learning bots, both with extended feature spaces and narrower feature spaces, and see which bot will improve most in relation to the default machine-learning bot. Our hypothesis is that the bots with an extended feature space will have a better performance the bots with a narrower feature space, and that the extended feature space bots will perform better than the default bot, where the narrow feature space will perform worse. This is because the narrowing of the feature space can cause underfitting, where the model 'cannot capture the underlying structure of the data'[3] increasing the chance of making a wrong prediction. Consequently, extending the feature space can cause overfitting, where the model has more features than the data needs, which can also lead to making the wrong predictions.
+Our goal is to build multiple bots machine learning bots, both with extended feature spaces and narrower feature spaces, and see which bot will improve most in relation to the default machine-learning bot. Our hypothesis is that the bots with an extended feature space will have a better performance the bots with a narrower feature space, and that the extended feature space bots will perform better than the default bot, where the narrow feature space will perform worse. This is because the narrowing of the feature space can cause underfitting, where the model 'cannot capture the underlying structure of the data [4] increasing the chance of making a wrong prediction. Consequently, extending the feature space can cause overfitting, where the model has more features than the data needs, which can also lead to making the wrong predictions.
 
 
 \clearpage
@@ -170,6 +171,7 @@ The tournament results are presented in Table 1.
 \end{center}
 \textbf{Table 1}: Overview of tournament wins and losses per ml-bot. \\
 
+In Table 2, we see the performance improvement (if applicable) over the default ml-bot.
 \begin{center}
 \begin{tabular}{| r | r | r | r || r |}
 \hline
@@ -184,6 +186,9 @@ The tournament results are presented in Table 1.
 \end{center}
 
 \textbf{Table 2}: Improvement over ml. \\
+
+In Table 3, we see the standard deviations of the mean of the 9 tournaments per bot.
+
 \begin{center}
 \begin{tabular}{| r | r | r | r |}
 \hline
@@ -193,6 +198,9 @@ The tournament results are presented in Table 1.
 \end{center}
 
 \textbf{Table 3}: \textit{Standard deviation} of the mean of the 9 tournaments for each bot. \\
+
+Below, we present three bar plots, with the part of games won by the ml-bots against rand, bully and rdeep in Figure 1,2 and 3 respectively. \\
+\textbf{NB:} The y-axis scale in figure three is different from figure 1 and 2.
 
 \begin{center}
 \begin{minipage}{0.49\linewidth}
@@ -207,10 +215,10 @@ The tournament results are presented in Table 1.
       \\ %extra line for space
 \begin{minipage}{0.49\linewidth}
 \includegraphics[width=\linewidth]{images/barplotRdeep.png}
-\captionof{figure}{Part of games won against Rdeep (please notice the Y-axis)}
+\captionof{figure}{Part of games won against Rdeep (mind the different Y-axis)}
 \end{minipage}
 \end{center}
-
+\clearpage
 \section{Findings}
 
 \subsection*{Against Rand}
@@ -218,42 +226,36 @@ There are a few notable things when comparing the performance of our bots. First
 
 \subsection*{Against Bully}
 
-Notable for the results of the tournaments against the bully bot are the following points. First of all, the stock ml bot performed the best of all bots. In figure 2 this is clearly noticable. Secondly,  ml\_stripped and ml\_minimal peformed comparable to ml bot. Therefore, we may conclude the smaller feature spaces do not cause a heavy impact on the performance of a learning bot. The last and most remarkable finding is the peformance of the ml\_enriched and ml\_combined bots. All bots with larger feature spaces peformed worse than ml bot. However, ml\_enriched and ml\_combined performed the worst with a performance decrease of approximately 9\%.
+Notable for the results of the tournaments against the bully bot are the following points. First of all, the stock ml bot performed the best of all bots. In figure 2 of section 5, this is clearly noticable. Secondly,  ml\_stripped and ml\_minimal peformed comparable to ml bot. Therefore, we may observe that smaller feature spaces seem to not cause a heavy impact on the performance of a learning bot. The last and most remarkable finding is the peformance of the ml\_enriched and ml\_combined bots. All bots with larger feature spaces peformed worse than ml bot. However, ml\_enriched and ml\_combined performed the worst with a performance decrease of approximately 12\%.
 
 
 \subsection*{Against Rdeep}
-The \textit{standard deviation} of the mean of the 9 tournaments for each bot against rdeep is 0.0280. This number is the lowest of all the non-learning bots and is clearly confirmed by the barplot in figure 3. Rdeep won the majority of the games, which results in a low diversity of winning scores among the learning bots. The worst performer was, surprisingly, the stock ml bot. Although the variance in the winning scores is low, the ml\_minimal bot performs clearly better against rdeep. Compared to the other learning bots, ml\_minimal performs approximately 25\% better. Also remarkable is the relatively low score of ml\_combined with the most features of all. The other bots containing a larger feature space did perform slightly better than the stock ml bot, although this is all within the margin of error.  Summarized, the bots with the smallest featurespaces seemed to perform the best against rdeep.
-
-
-
-
-
-
+The \textit{standard deviation} of the mean of the 9 tournaments for each bot against rdeep is 0.0280. This number is the lowest of all the non-learning bots and is clearly confirmed by the barplot in figure 3. Rdeep won the majority of the games, which results in a low diversity of winning scores among the learning bots. The worst performer was, surprisingly, the stock ml bot. Although the variance in the winning scores is low, the ml\_minimal bot performs clearly better against rdeep. Compared to the other learning bots, ml\_minimal performs approximately 25\% better. Also remarkable is the relatively low score of ml\_combined with the most features of all. The other bots containing a larger feature space did perform slightly better than the stock ml bot, although this is all within the margin of error.  Summarized, the bots with the smallest feature spaces seemed to perform the best against rdeep.
 
 \section{Conclusion}
-Performance is different per bot, and we can not say a lot since we do not have the data to do so , not enough data blabalablalbalalb
-
-
-
+In this paper, we set out to find performance improvements in machine-learning bots  playing the game of Schnapsen when using different feature spaces by comparing multiple machine learning bots, each bot equipped with its own extended or narrowed feature space. We observed that with all the different models we tried, there is not a huge performance increase. Overall, most bots even perform a bit worse than the default ml-bot. Only in the games against rdeep, all bots performed better than the default-ml, with a quite big margin. Even then, the bots with a narrowed feature space perform better than the bots with an extended feature space. This gives rise to the question: Does extending the feature space in this kind of machine learning bot actually have benefits? It seems that after this research, more questions have risen than have been answered. We cannot really say that we have found an overall performance increase in any bot, only performance increase against specific bots. Unfortunately, we cannot answer our research question now, because of the limited time we had. There seems to be no findable correlation between feature space and game performance in the data. We did see some improvement over the default ml-bot, but only in very small amounts. In future research, we would hold way more tournaments with more bots, looking at features one on one, to see which improve and which decrease performance.
 
 
 \section{References}
-1. http://humanparagon.com/strong-and-weak-ai/
-2. https://towardsdatascience.com/machine-learning-part-3-logistics-regression-9d890928680f
-3. https://en.wikipedia.org/wiki/Overfitting
+1. http://humanparagon.com/strong-and-weak-ai/ \\
+2. Lecture 4 of Intelligent Systems, VU, 2018 - \url{https://www.youtube.com/watch?v=nFfjcGKziQE&index=17&list=UUyRRg2ERDkUWKd2p3_KVidA} \\
+3. https://towardsdatascience.com/machine-learning-part-3-logistics-regression-9d890928680f \\
+4. https://en.wikipedia.org/wiki/Overfitting
 
 \clearpage
-
 \section{Appendix}
 \subsection{Overview of machine-learning bots' feature spaces}
 \begin{description}
-\item[ml\_minimal] \hfill
+\item[ml\_minimal]
+
 \begin{itemize}
+
+
 \item Perspective information
 \item Player 1's point count
 \item Player 2's point count
 \end{itemize}
-\item[ml\_stripped] \hfill
+\subsection{ml\_stripped}
 \begin{itemize}
 \item Perspective information
 \item Player 1's point count
@@ -264,7 +266,7 @@ Performance is different per bot, and we can not say a lot since we do not have 
 \item Whose turn it is currently
 \item The played card of the opponent
 \end{itemize}
-\item[ml\_enriched] \hfill
+\subsection{ml\_enriched}
 \begin{itemize}
 \item Perspective information
 \item Player 1's point count
@@ -286,7 +288,7 @@ Performance is different per bot, and we can not say a lot since we do not have 
 \item Whose turn it is currently
 \item The played card of the opponent
 \end{itemize}
-\item[ml\_advanced] \hfill
+\subsection{ml\_advanced}
 \begin{itemize}
 \item Perspective information
 \item Player 1's point count
@@ -308,7 +310,7 @@ Performance is different per bot, and we can not say a lot since we do not have 
 \item Number of points in hand squared ($card1^2$ + $card2^2$ ...)
 \end{itemize}
 
-\item[ml\_combined] \hfill
+\subsection{ml\_combined}
 \begin{itemize}
 \item Perspective information
 \item Player 1's point count
@@ -338,10 +340,7 @@ Performance is different per bot, and we can not say a lot since we do not have 
 \item Number of points in hand squared ($card1^2$ + $card2^2$ ...)
 \end{itemize}
 \end{description}
-
-
-
-\subsection{Worksheet I}
+\section{Worksheet I}
 \begin{enumerate}
 
 \item The \textit{rdeep} bot performs best, winning 20 out of 30 games. \\
@@ -446,7 +445,7 @@ Even though the code is right, the checking program does not behave correctly. T
 We came up with, the ratio of trump cards in hand, it turned out to be a horrible heuristic. Holding on to your trumps seems to be a bad tactic. Therefore we tried ditching trumps as soon as possible, this lead to somewhat better results, but random was still a better bot in the end. 
 
 \end{enumerate}
-\subsection{Worksheet II}
+\section{Worksheet II}
 \begin{enumerate}
 \item The added clause that makes the knowledge base unsatisfiable:
 \begin{lstlisting}[language=bash]
@@ -576,7 +575,7 @@ The statisfiability with the KB fails, therefore we know PA0 is entailed by the 
 
 \item 
 \end{enumerate}
-\subsection{Worksheet III}
+\section{Worksheet III}
 \begin{enumerate}
 \item The added code:
 \begin{lstlisting}[language=bash]
