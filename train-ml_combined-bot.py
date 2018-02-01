@@ -19,18 +19,17 @@ from bots.rdeep import rdeep
 from bots.bully import bully
 from bots.ml_advanced import ml_advanced
 from bots.ml import ml
-
+from bots.alphabeta import alphabeta
 #Pick the features of which bot you want to use for training the model:
 from bots.ml_combined.ml_combined import features
 #from bots.ml_advanced.ml_advanced import features
-# How many games to play
 GAMES = 100000
 
 # Which phase the game starts in
-PHASE = 1
+PHASE = 2
 
 # The player we'll observe
-player = rand.Bot()
+player = alphabeta.Bot()
 #player = rdeep.Bot()
 #player = ml_advanced.Bot()
 
