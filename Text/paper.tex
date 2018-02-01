@@ -7,6 +7,7 @@
 \usepackage[font=small,labelfont=bf]{caption}
 \usepackage{geometry}
 
+
 \title{Comparing the perfomance impacts of narrow and extended feature spaces for machine learning bots in the game of Schnapsen}
 \date{January 25, 2018}
 \author{Lucas Faijdherbe, Daan Schrage and Ruben van der Ham\\\\
@@ -238,25 +239,33 @@ In this paper, we set out to find performance improvements in machine-learning b
 
 
 \section{References}
-1. http://humanparagon.com/strong-and-weak-ai/ \\
-2. Lecture 4 of Intelligent Systems, VU, 2018 - \url{https://www.youtube.com/watch?v=nFfjcGKziQE&index=17&list=UUyRRg2ERDkUWKd2p3_KVidA} \\
-3. https://towardsdatascience.com/machine-learning-part-3-logistics-regression-9d890928680f \\
-4. https://en.wikipedia.org/wiki/Overfitting
+
+\begin{enumerate}
+\item What's The Difference Between Strong and Weak AI?, \url{http://humanparagon.com/strong-and-weak-ai/}.
+
+\item Schlobach, S.: Intelligent Systems 2018 L4P2 More on Informed Search, \url{https://www.youtube.com/watch?v=nFfjcGKziQE}.
+
+\item Chandrayan, P.: Machine Learning Part 3 : Logistic Regression – Towards Data Science, \url{https://towardsdatascience.com/machine-learning-part-3-logistics-regression-9d890928680f}.
+
+\item Overfitting, \url{https://en.wikipedia.org/wiki/Overfitting}.\\
+
+\end{enumerate}
+
+
+
+
 
 \clearpage
 \section{Appendix}
 \subsection{Overview of machine-learning bots' feature spaces}
 \begin{description}
-\item[ml\_minimal]
-
+\item[ml\_minimal] \hfill
 \begin{itemize}
-
-
 \item Perspective information
 \item Player 1's point count
 \item Player 2's point count
 \end{itemize}
-\subsection{ml\_stripped}
+\item[ml\_stripped] \hfill
 \begin{itemize}
 \item Perspective information
 \item Player 1's point count
@@ -267,7 +276,7 @@ In this paper, we set out to find performance improvements in machine-learning b
 \item Whose turn it is currently
 \item The played card of the opponent
 \end{itemize}
-\subsection{ml\_enriched}
+\item[ml\_enriched] \hfill
 \begin{itemize}
 \item Perspective information
 \item Player 1's point count
@@ -289,7 +298,7 @@ In this paper, we set out to find performance improvements in machine-learning b
 \item Whose turn it is currently
 \item The played card of the opponent
 \end{itemize}
-\subsection{ml\_advanced}
+\item[ml\_advanced] \hfill
 \begin{itemize}
 \item Perspective information
 \item Player 1's point count
@@ -311,7 +320,7 @@ In this paper, we set out to find performance improvements in machine-learning b
 \item Number of points in hand squared ($card1^2$ + $card2^2$ ...)
 \end{itemize}
 
-\subsection{ml\_combined}
+\item[ml\_combined] \hfill
 \begin{itemize}
 \item Perspective information
 \item Player 1's point count
@@ -341,7 +350,7 @@ In this paper, we set out to find performance improvements in machine-learning b
 \item Number of points in hand squared ($card1^2$ + $card2^2$ ...)
 \end{itemize}
 \end{description}
-\section{Worksheet I}
+\subsection{Worksheet I}
 \begin{enumerate}
 
 \item The \textit{rdeep} bot performs best, winning 20 out of 30 games. \\
@@ -446,7 +455,7 @@ Even though the code is right, the checking program does not behave correctly. T
 We came up with, the ratio of trump cards in hand, it turned out to be a horrible heuristic. Holding on to your trumps seems to be a bad tactic. Therefore we tried ditching trumps as soon as possible, this lead to somewhat better results, but random was still a better bot in the end. 
 
 \end{enumerate}
-\section{Worksheet II}
+\subsection{Worksheet II}
 \begin{enumerate}
 \item The added clause that makes the knowledge base unsatisfiable:
 \begin{lstlisting}[language=bash]
@@ -580,7 +589,7 @@ The statisfiability with the KB fails, therefore we know PA0 is entailed by the 
 
 
 \clearpage
-\section{Worksheet III}
+\subsection{Worksheet III}
 \begin{enumerate}
 \item The added code:
 \begin{lstlisting}[language=bash]
