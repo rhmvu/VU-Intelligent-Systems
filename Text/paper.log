@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.6)  1 FEB 2018 21:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.1.6)  1 FEB 2018 22:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -352,10 +352,10 @@ Package pdftex.def Info: images/vulogo.png used on input line 23.
 [1
 
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./image
-s/vulogo.png (PNG copy)>]
-
-Package hyperref Warning: old toc file detected, not used; run LaTeX again.
-
+s/vulogo.png (PNG copy)>] (./paper.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 3.
+)
 \tf@toc=\write4
 \openout4 = `paper.toc'.
 
@@ -367,31 +367,28 @@ l.30 \clearpage
                 [1
 
 ]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 49.
-
 Underfull \hbox (badness 10000) in paragraph at lines 47--53
 
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 47--53
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 54--61
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 54--61
 
  []
 
 [1
 
-] [2] [3]
+]
+Underfull \hbox (badness 10000) in paragraph at lines 54--61
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--61
+
+ []
+
+[2] [3]
 Underfull \hbox (badness 10000) in paragraph at lines 81--82
 
  []
@@ -421,7 +418,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 200--201
 
  []
 
-<images/barplotRand.png, id=134, 498.36188pt x 402.75468pt>
+<images/barplotRand.png, id=157, 498.36188pt x 402.75468pt>
 File: images/barplotRand.png Graphic file (type png)
 
 <use images/barplotRand.png>
@@ -433,7 +430,7 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 208.
 See the caption package documentation for explanation.
 
-<images/barplotBully.png, id=135, 498.36188pt x 402.75468pt>
+<images/barplotBully.png, id=158, 498.36188pt x 402.75468pt>
 File: images/barplotBully.png Graphic file (type png)
 
 <use images/barplotBully.png>
@@ -447,7 +444,7 @@ See the caption package documentation for explanation.
 
 [7
 
-] <images/barplotRdeep.png, id=140, 498.36188pt x 402.75468pt>
+] <images/barplotRdeep.png, id=163, 498.36188pt x 402.75468pt>
 File: images/barplotRdeep.png Graphic file (type png)
 
 <use images/barplotRdeep.png>
@@ -522,9 +519,9 @@ Package rerunfilecheck Info: File `paper.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 649.
  ) 
 Here is how much of TeX's memory you used:
- 8305 strings out of 492995
- 126264 string characters out of 6132705
- 247402 words of memory out of 5000000
+ 8307 strings out of 492995
+ 126284 string characters out of 6132705
+ 247317 words of memory out of 5000000
  11563 multiletter control sequences out of 15000+600000
  9633 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -539,10 +536,10 @@ ocal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
 l/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
 /texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/
 texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on paper.pdf (22 pages, 226038 bytes).
+Output written on paper.pdf (22 pages, 229370 bytes).
 PDF statistics:
- 482 PDF objects out of 1000 (max. 8388607)
- 436 compressed objects within 5 object streams
+ 504 PDF objects out of 1000 (max. 8388607)
+ 458 compressed objects within 5 object streams
  235 named destinations out of 1000 (max. 500000)
  197 words of extra memory for PDF output out of 10000 (max. 10000000)
 
